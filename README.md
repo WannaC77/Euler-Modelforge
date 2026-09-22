@@ -105,6 +105,11 @@ python templates-library/smoke_all.py --quick   # 模板库冒烟（每类首件
 - **文档与模板**：CC-BY-4.0（见 `LICENSE-DOCS`）。
 - **第三方件**：来源、许可与修改说明见 `THIRD-PARTY.md`；`references/获奖级方法论/` 内 5 份方法论件来自 Lupynow/math-modeling-skills（MIT）。
 
+> ⚠️ **发布状态提示（重要）**：`paper-templates/国赛-CUMCM/` 下的 `cumcmthesis.cls` 与 `cumcm2026.sty`
+> **许可待核**（随附件未见明确许可头，已在 `THIRD-PARTY.md` 标 `[许可待核]`）。
+> 在取得上游明确许可之前，**本仓库不得公开发布（no public release）**；
+> 如需先行发布，请先移除该目录（或仅在内部分发）。
+
 ## 兼容性
 
 本产品不依赖任何特定 agent / CLI / 调度器 / API key。
