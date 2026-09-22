@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="568.8pt" height="324.525794pt" viewBox="0 0 568.8 324.525794" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-22T11:38:39.043902</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 324.525794 
+L 568.8 324.525794 
+L 568.8 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 125.2872 146.878235 
+Q 138.87 146.878235 151.055258 146.878235 
+" clip-path="url(#pc95248c002)" style="fill: none; stroke: #1f4e79; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 146.655258 144.678235 
+L 151.055258 146.878235 
+L 146.655258 149.078235 
+z
+" clip-path="url(#pc95248c002)" style="fill: #1f4e79; stroke: #1f4e79; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 255.5712 146.878235 
+Q 270.54 146.878235 284.111258 146.878235 
+" clip-path="url(#pc95248c002)" style="fill: none; stroke: #1f4e79; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 279.711258 144.678235 
+L 284.111258 146.878235 
+L 279.711258 149.078235 
+z
+" clip-path="url(#pc95248c002)" style="fill: #1f4e79; stroke: #1f4e79; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 388.6272 146.878235 
+Q 403.596 146.878235 417.167258 146.878235 
+" clip-path="url(#pc95248c002)" style="fill: none; stroke: #1f4e79; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 412.767258 144.678235 
+L 417.167258 146.878235 
+L 412.767258 149.078235 
+z
+" clip-path="url(#pc95248c002)" style="fill: #1f4e79; stroke: #1f4e79; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 306.576 170.940257 
+Q 306.576 195.910281 306.576 219.482761 
+" clip-path="url(#pc95248c002)" style="fill: none; stroke: #5b6770; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 308.776 215.082761 
+L 306.576 219.482761 
+L 304.376 215.082761 
+z
+" clip-path="url(#pc95248c002)" style="fill: #5b6770; stroke: #5b6770; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 367.56 220.880304 
+Q 367.56 195.910281 367.56 172.3378 
+" clip-path="url(#pc95248c002)" style="fill: none; stroke-dasharray: 4.625,2; stroke-dashoffset: 0; stroke: #5b6770; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 365.36 176.7378 
+L 367.56 172.3378 
+L 369.76 176.7378 
+z
+" clip-path="url(#pc95248c002)" style="fill: #5b6770; stroke-dasharray: 4.625,2; stroke-dashoffset: 0; stroke: #5b6770; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 470.124 122.816213 
+Q 337.068 213.294293 205.167665 123.602065 
+" clip-path="url(#pc95248c002)" style="fill: none; stroke: #c0504d; stroke-width: 1.25; stroke-linecap: round"/>
+    <path d="M 207.569059 127.895467 
+L 205.167665 123.602065 
+L 210.043224 124.25699 
+z
+" clip-path="url(#pc95248c002)" style="fill: #c0504d; stroke: #c0504d; stroke-width: 1.25; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 28.2672 172.302259 
+L 119.1888 172.302259 
+Q 126.9504 172.302259 126.9504 165.946253 
+L 126.9504 127.810217 
+Q 126.9504 121.454211 119.1888 121.454211 
+L 28.2672 121.454211 
+Q 20.5056 121.454211 20.5056 127.810217 
+L 20.5056 165.946253 
+Q 20.5056 172.302259 28.2672 172.302259 
+z
+" clip-path="url(#pc95248c002)" style="fill: #ffffff; stroke: #1f4e79; stroke-width: 1.15; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 158.5512 172.302259 
+L 249.4728 172.302259 
+Q 257.2344 172.302259 257.2344 165.946253 
+L 257.2344 127.810217 
+Q 257.2344 121.454211 249.4728 121.454211 
+L 158.5512 121.454211 
+Q 150.7896 121.454211 150.7896 127.810217 
+L 150.7896 165.946253 
+Q 150.7896 172.302259 158.5512 172.302259 
+z
+" clip-path="url(#pc95248c002)" style="fill: #ffffff; stroke: #1f4e79; stroke-width: 1.15; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 291.6072 172.302259 
+L 382.5288 172.302259 
+Q 390.2904 172.302259 390.2904 165.946253 
+L 390.2904 127.810217 
+Q 390.2904 121.454211 382.5288 121.454211 
+L 291.6072 121.454211 
+Q 283.8456 121.454211 283.8456 127.810217 
+L 283.8456 165.946253 
+Q 283.8456 172.302259 291.6072 172.302259 
+z
+" clip-path="url(#pc95248c002)" style="fill: #ffffff; stroke: #1f4e79; stroke-width: 1.15; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 424.6632 172.302259 
+L 515.5848 172.302259 
+Q 523.3464 172.302259 523.3464 165.946253 
+L 523.3464 127.810217 
+Q 523.3464 121.454211 515.5848 121.454211 
+L 424.6632 121.454211 
+Q 416.9016 121.454211 416.9016 127.810217 
+L 416.9016 165.946253 
+Q 416.9016 172.302259 424.6632 172.302259 
+z
+" clip-path="url(#pc95248c002)" style="fill: #ffffff; stroke: #1f4e79; stroke-width: 1.15; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_12">
+    <path d="M 291.6072 270.36635 
+L 382.5288 270.36635 
+Q 390.2904 270.36635 390.2904 264.010344 
+L 390.2904 225.874309 
+Q 390.2904 219.518303 382.5288 219.518303 
+L 291.6072 219.518303 
+Q 283.8456 219.518303 283.8456 225.874309 
+L 283.8456 264.010344 
+Q 283.8456 270.36635 291.6072 270.36635 
+z
+" clip-path="url(#pc95248c002)" style="fill: #f4f6f8; stroke-dasharray: 4.255,1.84; stroke-dashoffset: 0; stroke: #1f4e79; stroke-width: 1.15; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #1f4e79" x="73.728" y="141.690644" transform="rotate(-0 73.728 141.690644)">Data</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 7.2px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="73.728" y="157.22704" transform="rotate(-0 73.728 157.22704)">observations</text>
+   </g>
+   <g id="text_3">
+    <!-- $X \in R^{n \times d}$ -->
+    <g style="fill: #333333" transform="translate(59.724 169.771301)">
+     <text>
+      <tspan x="0" y="-0.592025" style="font-style: italic; font-size: 7.2px; font-family: 'STIXGeneral'; fill: #333333">X</tspan>
+      <tspan x="12.19514" y="-0.592025" style="font-style: italic; font-size: 7.2px; font-family: 'STIXGeneral'; fill: #333333">R</tspan>
+      <tspan x="5.831632" y="-0.592025" style="font-size: 7.2px; font-family: 'STIXGeneral'; fill: #333333">∈</tspan>
+      <tspan x="17.344347" y="-3.565625" style="font-style: italic; font-size: 5.04px; font-family: 'STIXGeneral'; fill: #333333">n</tspan>
+      <tspan x="25.096051" y="-3.565625" style="font-style: italic; font-size: 5.04px; font-family: 'STIXGeneral'; fill: #333333">d</tspan>
+      <tspan x="20.868004" y="-3.565625" style="font-size: 5.04px; font-family: 'STIXGeneral'; fill: #333333">×</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #1f4e79" x="204.012" y="141.690644" transform="rotate(-0 204.012 141.690644)">Preprocess</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7.2px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="204.012" y="157.22704" transform="rotate(-0 204.012 157.22704)">clean / scale</text>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 7.2px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="204.012" y="169.031051" transform="rotate(-0 204.012 169.031051)">feature select</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #1f4e79" x="337.068" y="141.690644" transform="rotate(-0 337.068 141.690644)">Model</text>
+   </g>
+   <g id="text_8">
+    <!-- parameters $\theta$ -->
+    <g style="fill: #333333" transform="translate(318.636 157.208337)">
+     <text>
+      <tspan x="0" y="-0.125" style="font-size: 7.2px; font-family: 'Times New Roman'; fill: #333333">p</tspan>
+      <tspan x="3.59375" y="-0.125" style="font-size: 7.2px; font-family: 'Times New Roman'; fill: #333333">a</tspan>
+      <tspan x="6.783905" y="-0.125" style="font-size: 7.2px; font-family: 'Times New Roman'; fill: #333333">r</tspan>
+      <tspan x="9.177399" y="-0.125" style="font-size: 7.2px; font-family: 'Times New Roman'; fill: #333333">a</tspan>
+      <tspan x="12.367554" y="-0.125" style="font-size: 7.2px; font-family: 'Times New Roman'; fill: #333333">m</tspan>
+      <tspan x="17.958221" y="-0.125" style="font-size: 7.2px; font-family: 'Times New Roman'; fill: #333333">e</tspan>
+      <tspan x="21.148376" y="-0.125" style="font-size: 7.2px; font-family: 'Times New Roman'; fill: #333333">t</tspan>
+      <tspan x="23.145294" y="-0.125" style="font-size: 7.2px; font-family: 'Times New Roman'; fill: #333333">e</tspan>
+      <tspan x="26.335449" y="-0.125" style="font-size: 7.2px; font-family: 'Times New Roman'; fill: #333333">r</tspan>
+      <tspan x="28.728943" y="-0.125" style="font-size: 7.2px; font-family: 'Times New Roman'; fill: #333333">s</tspan>
+      <tspan x="31.526031" y="-0.125" style="font-size: 7.2px; font-family: 'Times New Roman'; fill: #333333"> </tspan>
+      <tspan x="33.322906" y="-0.125" style="font-style: italic; font-size: 7.2px; font-family: 'STIXGeneral'; fill: #333333">θ</tspan>
+     </text>
+    </g>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7.2px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="337.068" y="169.031051" transform="rotate(-0 337.068 169.031051)">solve / fit</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #1f4e79" x="470.124" y="141.693193" transform="rotate(-0 470.124 141.693193)">Decision</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7.2px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="470.124" y="157.22704" transform="rotate(-0 470.124 157.22704)">policy / report</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7.2px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="470.124" y="169.031051" transform="rotate(-0 470.124 169.031051)">sensitivity check</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 9px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #1f4e79" x="337.068" y="239.757284" transform="rotate(-0 337.068 239.757284)">Validation</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7.2px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="337.068" y="255.291131" transform="rotate(-0 337.068 255.291131)">held-out test</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7.2px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #333333" x="337.068" y="267.095142" transform="rotate(-0 337.068 267.095142)">error metrics</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 7.2px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #5b6770" x="421.8912" y="197.633078" transform="rotate(-0 421.8912 197.633078)">model selection</text>
+   </g>
+   <g id="text_17">
+    <text style="font-size: 7.2px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #c0504d" x="337.068" y="98.206985" transform="rotate(-0 337.068 98.206985)">iterative refinement (if metrics fail)</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 7.2px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle; fill: #5b6770" x="284.4" y="315.771888" transform="rotate(-0 284.4 315.771888)">Solid = main pipeline   |   Dashed = internal loop   |   Red = refinement feedback</text>
+   </g>
+   <g id="text_19">
+    <text style="font-size: 11px; font-family: 'Times New Roman', 'Nimbus Roman', 'DejaVu Serif', serif; text-anchor: middle" x="284.4" y="14.838125" transform="rotate(-0 284.4 14.838125)">Modeling workflow: main pipeline, validation loop and refinement</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pc95248c002">
+   <rect x="7.2" y="28.838125" width="554.4" height="272.400254"/>
+  </clipPath>
+ </defs>
+</svg>

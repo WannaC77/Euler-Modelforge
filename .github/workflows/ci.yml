@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  selftest:
+    name: selftest (py${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: 安装依赖
+        run: python -m pip install --upgrade pip && python -m pip install -r templates-library/requirements.txt
+
+      - name: 环境自检（env_check）
+        run: python tools/env_check.py --selftest
+
+      - name: 端到端冒烟（smoke_chain · 含黄金数值断言）
+        run: python tools/smoke_chain.py --selftest
+
+      - name: 全部 tools 自检
+        run: |
+          set -e
+          for f in tools/*.py; do
+            echo "== $f"
+            python "$f" --selftest
+          done
+
+      - name: 求解模板库冒烟（35 模板 · 快速模式）
+        run: python templates-library/smoke_all.py --quick
+
+      - name: 提交门禁脚本（退出码契约：0=PASS 1=FAIL 2=usage）
+        run: |
+          set +e
+          python scripts/precheck_paper.py > /dev/null 2>&1
+          rc=$?
+          echo "precheck_paper.py 无参退出码 = $rc"
+          test "$rc" -eq 2 -o "$rc" -eq 0 || { echo "❌ 退出码契约不符"; exit 1; }
