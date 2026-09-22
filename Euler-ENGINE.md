@@ -3,7 +3,7 @@
 > **用途 / Purpose**：数学建模竞赛（美赛 MCM/ICM + 国赛 CUMCM）生成引擎；哲学＝**冲刺可执行；倒计时砍范围不砍深度**。
 > **装载 / Mount**：任何可读文件 + 跑 Python 的人或 agent 按 §0 三步装载；不依赖任何 agent 私有机制。
 > **正本 / SSOT**：细节正本在 `workflows/` 与各模块规格件；**本文件只索引，不复制正文**。
-> **版本 / Version**：v1.1（2026-09-22）· 模块 10 + 底座 · 执行方：任何可读文件 + 跑 Python 者（无私有依赖）
+> **版本 / Version**：v1.2（2026-09-22）· 模块 10 + 底座 · 执行方：任何可读文件 + 跑 Python 者（无私有依赖）
 > **分层 / Layers**：L0 领域能力（本文件 · `modules/` · `templates/` · `tools/` · `templates-library/**` 模板库 · `paper-templates/**`）｜L1 配置剖面（`Euler-CORE.md` 双赛事节 = 美赛/国赛 profile）｜L2（`<校准台账>` · `<锚注册卡>/` · <校准标准> 个人校准——只读引用）
 > **开源兼容**：新建 L0 全部系统相对路径；L0 不依赖个人判档线/锚分；赛事参数在 L1 profile 小节。
 
@@ -13,7 +13,7 @@
 2. 按所选 runbook 的装载清单加载 **L0/L1**；环境优先 `<venv>`。缺件按模块表「降级」列执行并标 `[降级]`。
 3. 产物落盘 → 过对应门禁（§3）→ 记交接卡（§7）。
 
-**环境自检**：`tools/env_check.py`（已落盘；`--selftest` 可自证；档位 T0/T1/T2）；链级冒烟 `tools/smoke_chain.py`（v1.1）；模板冒烟 `templates-library/smoke_all.py`。
+**环境自检**：`tools/env_check.py`（已落盘；`--selftest` 可自证；档位 T0/T1/T2）；链级冒烟 `tools/smoke_chain.py`（v1.2）；模板冒烟 `templates-library/smoke_all.py`。
 
 **路径基点（SSOT · 双基准写死）**：
 
@@ -85,19 +85,19 @@ M9 校准：备赛期挂接、赛中禁跑（L2）
 | 锚注册卡 | `<锚注册卡>/`（11 件） | — | E-M9 | L2 | ✅ |
 | 模块规格件 ×11 | `modules/E-M*/MODULE.md`（四件：目的/接口/门禁/降级） | v1.0 | 各模块 | L0 | ✅ |
 | 模板集 ×10 | `templates/`（拆题卡 / 选题评估矩阵 / 假设表 / 符号表.tex / 模型卡 / 复现卡 / 敏感性报告卡 / Claim-Evidence 映射表 / 提交包清单卡 / AI 记录模板） | v1.0 | E-M1–M8 | L0 | ✅ |
-| 工具集 | `tools/{env_check,smoke_chain}.py`（v1.1）；`templates-library/smoke_all.py`；`templates-library/utils/figkit/`（5 demo + gray_cb_check） | v1.0/1.1 | E-M4/M6/R | L0 | ✅ |
+| 工具集 | `tools/{env_check,smoke_chain}.py`（v1.2）；`templates-library/smoke_all.py`；`templates-library/utils/figkit/`（5 demo + gray_cb_check） | v1.0/1.1 | E-M4/M6/R | L0 | ✅ |
 | 参考卡 ×4 | `references/`（求解报告规范 / 论文装配SOP / 图注模板 / 故障速查卡） | v1.0 | 各模块 | L0 | ✅ |
 
-## 6 · 环境卡（手工核 · env_check 落盘前）
+## 6 · 环境卡（以本机 `env_check` 实测为准）
 
-| 项 | 本机值 |
+| 项 | 值 |
 |---|---|
-| 数模 venv（优先） | `<venv>`（Python 3.11；模板/依赖按 `requirements.txt`） |
-| 系统 Python | 3.13（matplotlib / pymupdf / python-docx 可用） |
+| 参考解释器 | Python 3.11+（推荐 3.13；`tools/env_check.py` 自探测依赖最全的解释器，不写死路径） |
+| 虚拟环境（可选） | 自建 `<venv>`；缺件时回退系统 Python 并按模块「降级」列声明 |
 | LaTeX | 双模板 + `编译自检.bat`（xelatex）；缺字体按降级记录 |
 | 可选件 | TeX 全套 / Word COM——缺件按模块降级列声明 |
 
-> 本机实测档位：**T2**（2026-09-22 `env_check.py` 实测：venv 四包 / 35 模板 / 双 LaTeX 模板 / TeX Live 2026 + MiKTeX / 中文字体）。
+> **档位以本机 `env_check.py` 输出为准**：本卡不记录任何特定机器的实测值（T0/T1/T2 为连续达标口径——低档缺件会把整体档位压到该档；报告另给「分档可用性」逐档说明）。
 
 ## 7 · 交接卡模板（E-M10）
 
@@ -122,3 +122,4 @@ M9 校准：备赛期挂接、赛中禁跑（L2）
 **变更记录**
 - v1.0（2026-09-21 · 生成侧强化批 2）：骨架建立（装载协议 / 双基准 SSOT / 模块注册 ×11 / 数据流 / 门禁矩阵 / runbooks RB-E1–E5 / 资产清单 / 环境卡 / 交接卡 / 维护纪律）。
 - v1.1（2026-09-22 · 生成侧强化批 4 · 总装）：模块规格件 ×11 / 模板集 ×10 / 工具集（env_check · smoke_chain v1.1 · smoke_all · figkit）/ 参考卡 ×4 全部落盘并登记；smoke_all 35/35、smoke_chain 全 PASS；门禁行挂接实路径。
+- v1.2（2026-09-22 · 开源发布批）：资产清单版本对齐（smoke_chain v1.1→v1.2，与脚本自报 VERSION 一致）；`scripts/precheck_paper.py` 退出码契约修正（输入错误 → 2 且不再抛栈；`--help` → 0）；QUICKSTART/AGENTS 补「无 venv 时的解释器选择」与「自检产物落盘位置」；环境卡改为以本机 env_check 实测为准。

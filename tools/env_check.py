@@ -451,8 +451,13 @@ def render(r: dict) -> str:
     lines += ['', '## 检查项', '', '| 项 | 状态 | 说明 | 档 |', '|---|---|---|---|']
     for i in r['items']:
         lines.append('| %s | %s | %s | %s |' % (i['name'], 'PASS' if i['ok'] else 'MISS', i['note'], i['tier']))
+    def _tier_avail(t):
+        miss = [i['name'] for i in r['items'] if i['tier'] == t and not i['ok']]
+        return '%s: %s' % (t, '可用' if not miss else '缺 %d 项（%s）' % (len(miss), '、'.join(miss)))
     lines += ['', '**档位：%s**｜%s' % (r['tier'],
-              ('缺件：' + '、'.join(r['missing'])) if r['missing'] else '无缺件')]
+              ('缺件：' + '、'.join(r['missing'])) if r['missing'] else '无缺件'),
+              '- 分档可用性：' + '｜'.join(_tier_avail(t) for t in ('T0', 'T1', 'T2')),
+              '  （档位按 T0→T1→T2 连续判定：低档缺件把整体档位压到该档；高档项全绿不代表整体档位，见逐档可用性）']
     return '\n'.join(lines)
 
 

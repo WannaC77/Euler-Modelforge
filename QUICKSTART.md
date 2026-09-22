@@ -20,6 +20,8 @@ python -m venv .venv
 
 > 不装 venv 也能跑：`tools/` 与 `templates-library/` 会在系统 Python 下回退，
 > 缺包时输出 `SKIP` 并说明原因（**不会**假装通过）。
+> **用哪个解释器**：任一 Python 3.11+ 均可（本仓不写死路径）。机器上有多个解释器时，`env_check.py` 会自动挑选
+> 依赖最全的一个；要显式指定就写在命令里（Windows `py -3.13 tools/env_check.py --selftest`、Linux/macOS `python3.13 tools/env_check.py --selftest`）。
 
 ## 2. 自检环境
 
@@ -28,6 +30,9 @@ python tools/env_check.py --selftest
 ```
 
 输出各项 `[PASS]/[FAIL]/[SKIP]` 与档位（T0/T1/T2）。**FAIL 必须处理**，SKIP 请记下原因。
+档位按 T0→T1→T2 连续判定（低档缺件会把整体档位压到该档），报告末行另给「分档可用性」逐档说明。
+
+> 自检产物落 `<repo>/tools/_smoke_out/`（已在 `.gitignore`，可安全删除）；只读场景请在副本中执行。
 
 ## 3. 跑冒烟链（合成数据 · 已知答案）
 

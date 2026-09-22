@@ -78,7 +78,7 @@ python tools/smoke_chain.py --selftest          # 全链冒烟
 python templates-library/smoke_all.py --quick   # 模板库冒烟（每类首件）
 ```
 
-约定：全 PASS / SKIP 即 rc=0；**SKIP 不算 FAIL**；WARN 需登记；FAIL 非零退出。
+约定：全 PASS / SKIP 即 rc=0；**SKIP 不算 FAIL**；WARN 需登记；FAIL 非零退出。退出码语义统一为 `0` 通过 · `1` 失败 · `2` 用法错误（含输入错误，**不抛栈**）。
 
 ## L2 自建（不随包分发）
 

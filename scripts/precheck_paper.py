@@ -17,6 +17,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import sys
 
@@ -162,8 +163,14 @@ def main() -> int:
         if a.startswith("--"):
             continue
         args.append(a)
+    if "--help" in argv or "-h" in argv:
+        print(__doc__)
+        return 0
     if not args:
         print(__doc__)
+        return 2
+    if not os.path.isfile(args[0]):
+        print("输入错误：文件不存在或不是普通文件 → %s" % args[0])
         return 2
     profile = "our"
     if "--profile" in sys.argv:

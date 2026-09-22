@@ -39,9 +39,11 @@ python scripts/<checker>.py <args>        # exit 0=PASS 1=FAIL 2=usage
 python templates-library/smoke_all.py [--quick]
 ```
 
-- 所有脚本：**无用户绝对路径**；`--help` 可用；依赖见 `templates-library/requirements.txt`
+- 所有脚本：**无用户绝对路径**；`--help` 可用（rc=0）；依赖见 `templates-library/requirements.txt`
 - 门禁脚本**必须可失败**（自检里带反例）；`--selftest` 用于验证工具自身
-- 退出码语义：`0` 通过 · `1` 失败 · `2` 用法错误
+- 退出码语义：`0` 通过 · `1` 失败 · `2` 用法错误（含输入错误：文件不存在 / 参数缺失；**不抛栈**）
+- 自检产物落盘：`tools/_smoke_out/`、`templates-library/_smoke_out/`（已 `.gitignore`，可安全删除）；只读场景请在副本中执行
+- 解释器：任一 Python 3.11+；多个解释器时脚本自探测依赖最全者（不写死路径）
 
 ## 4. 降级约定（诚实性要求）
 

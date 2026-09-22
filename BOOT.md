@@ -27,4 +27,5 @@
 | 模块表 / 门禁 | `Euler-ENGINE.md` · `Euler-CORE.md` |
 | 求解模板库（35 个） | `templates-library/` |
 | 论文模板（双轨） | `paper-templates/` |
+| 正本命令集（CI） | `.github/workflows/ci.yml` |
 | 私有校准（L2 · 可选自建） | `kb/` · `<共享层>/` · `<校准台账>` · `<锚注册卡>/` |
