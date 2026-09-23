@@ -15,9 +15,9 @@
 ## 编译命令
 
 ```bash
-# 国赛 CUMCM（中文，必须 XeLaTeX）
+# 国赛 CUMCM（中文，必须 XeLaTeX；模板需自备 —— 见 国赛-CUMCM/README.md）
 cd paper-templates/国赛-CUMCM
-xelatex -interaction=nonstopmode example.tex       # 跑 2 遍生成目录/交叉引用
+xelatex -interaction=nonstopmode <论文主文件>.tex          # 跑 2 遍生成目录/交叉引用
 
 # 美赛 MCM/ICM（英文，pdfLaTeX 或 XeLaTeX 均可）
 cd paper-templates/美赛-MCM-ICM
@@ -40,7 +40,8 @@ paper-templates/编译自检.bat        # 双击也行；赛前一周必跑一�
 
 ## 国赛 CUMCM（`国赛-CUMCM/`）
 
-- 模板：`cumcmthesis.cls` + `cumcm2026.sty`，示例 `example.tex`（实测 xelatex 出 **12 页** PDF）
+- 模板：`cumcmthesis.cls` + `cumcm2026.sty`（第三方件，许可待核 → **不随本包分发**；按本目录 `README.md` 从上游获取后放入即可）
+- 作者本机实测参考：该模板 + 示例件用 xelatex 出 **12 页** PDF（模板自备后同样适用）
 - **必须 XeLaTeX**（模板强制，pdfLaTeX 会报错）
 - ⚠️ 国赛官方以 Word 提交为主流，LaTeX 导出 PDF 前先核对当年提交系统是否接受 PDF
 - ⚠️ AI 使用声明位置见 `workflows/10-AI使用声明.md`（以当年官方规定为准）

@@ -2,16 +2,16 @@
 % 符号表（E-M2）· 可直接 \input 进论文的 LaTeX 片段
 % ------------------------------------------------------------
 % 用途 / Purpose ：全队统一符号的单一出口——建模、代码、论文用同一套符号。
-% 对应工作流 / Workflow ：Euler/workflows/03-问题分析与假设.md §符号说明 ·
-%                          Euler/workflows/04-建模.md §第三步（定义变量、参数）·
-%                          Euler/workflows/05-编程求解.md §代码规范
-% 门禁指针 / Gates ：Euler/Euler-ENGINE.md §1 E-M2——符号与代码/论文一致；§3「建模」行
+% 对应工作流 / Workflow ：workflows/03-问题分析与假设.md §符号说明 ·
+%                          workflows/04-建模.md §第三步（定义变量、参数）·
+%                          workflows/05-编程求解.md §代码规范
+% 门禁指针 / Gates ：Euler-ENGINE.md §1 E-M2——符号与代码/论文一致；§3「建模」行
 % ------------------------------------------------------------
 % 用法 / Usage ：
 %   1) 论文「符号说明」节里写 \section{符号说明} 后接 \input{sections/符号表.tex}
 %      （节标题由论文给，本片段不含 \section；如需自带标题，启用下方注释行后删掉论文里的 \section）
 %   2) 包依赖：longtable + booktabs + tabularx + array
-%      —— 双模板 cls 已载（国赛-CUMCM/cumcmthesis.cls、美赛-MCM-ICM/mcmthesis.cls）；
+%      —— 模板 cls：美赛-MCM-ICM/mcmthesis.cls 随包；国赛-CUMCM/cumcmthesis.cls 需自备（见该目录 README）；
 %      换用其他模板若缺包，在导言区加 \usepackage{longtable,booktabs,tabularx,array}
 %   3) 占位符 <…> 仅在「含义/首次出现处/单位」等**文本模式**列内使用；交稿前必须全部替换
 %      （pdflatex+T1 下 < > 会渲染成 ¡ ¿，属占位现象，不影响逻辑）

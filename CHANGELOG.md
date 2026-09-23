@@ -23,6 +23,6 @@
 - 零私有依赖：不依赖任何特定 agent / CLI / 调度器 / API key
 
 **已知边界**
-- `paper-templates/国赛-CUMCM/` 的 `cumcmthesis.cls` 与 `cumcm2026.sty` 许可待核（`THIRD-PARTY.md` 标注）——
-  该目录在许可闭合前**不随公开发行分发**
+- `paper-templates/国赛-CUMCM/` 的第三方模板（`cumcmthesis.cls` / `cumcm2026.sty`，许可待核）**不随本包分发**——
+  该目录内只留获取与启用指引（`paper-templates/国赛-CUMCM/README.md`）；美赛模板随包分发
 - 缺失 LaTeX / 依赖时论文链降级为 `.tex` 交付（不生成 PDF）

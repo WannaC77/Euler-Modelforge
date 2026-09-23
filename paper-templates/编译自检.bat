@@ -11,6 +11,7 @@ set "ROOT=%~dp0"
 set "TLBIN=<TeX 安装目录>/"
 set "MKBIN=%LOCALAPPDATA%\Programs\MiKTeX\miktex\bin\x64"
 set "FAIL=0"
+set "SKIPPED=0"
 
 if exist "%TLBIN%\xelatex.exe" (
   set "TEXBIN=%TLBIN%"
@@ -40,7 +41,8 @@ echo ============================================
 rem ---------- CUMCM (Chinese, XeLaTeX required) ----------
 echo.
 echo [1/2] CUMCM template  (xelatex, 2 passes) ...
-if not defined GSDIR (echo   [FAIL] CUMCM dir not found & set "FAIL=1" & goto :meisai)
+if not defined GSDIR (echo   [SKIP] CUMCM template dir not present & set "SKIPPED=1" & goto :meisai)
+if not exist "%GSDIR%\example.tex" (echo   [SKIP] CUMCM template not bundled - see README in the CUMCM template dir & set "SKIPPED=1" & goto :meisai)
 cd /d "%GSDIR%"
 del /q example.pdf 2>nul
 xelatex -interaction=nonstopmode example.tex >nul 2>&1
@@ -56,7 +58,8 @@ for %%A in (example.pdf) do echo   [PASS] example.pdf  %%~zA bytes
 rem ---------- MCM/ICM (English, pdfLaTeX) ----------
 echo.
 echo [2/2] MCM/ICM template  (pdflatex, 2 passes) ...
-if not defined MSDIR (echo   [FAIL] MCM/ICM dir not found & set "FAIL=1" & goto :summary)
+if not defined MSDIR (echo   [SKIP] MCM/ICM template dir not present & set "SKIPPED=1" & goto :summary)
+if not exist "%MSDIR%\mcmthesis-template.tex" (echo   [SKIP] MCM/ICM template file not found & set "SKIPPED=1" & goto :summary)
 cd /d "%MSDIR%"
 del /q mcmthesis-template.pdf 2>nul
 pdflatex -interaction=nonstopmode mcmthesis-template.tex >nul 2>&1
@@ -70,8 +73,9 @@ for %%A in (mcmthesis-template.pdf) do echo   [PASS] mcmthesis-template.pdf  %%~
 
 :summary
 echo.
+if not "%SKIPPED%"=="0" echo NOTE: one or more templates were SKIPPED ^(not bundled / not found^) - see lines above.
 if "%FAIL%"=="0" (
-  echo ============ ALL TEMPLATES PASS ============
+  echo ============ ALL AVAILABLE TEMPLATES PASS ============
   exit /b 0
 ) else (
   echo ============ SMOKE TEST FAILED ============

@@ -13,7 +13,7 @@
 装配 SOP：`references/论文装配SOP.md`；CE 表：`templates/Claim-Evidence映射表.md`。
 
 ## 装载 / Loading（指针，细节在正本）
-`workflows/07-论文撰写.md`；`paper-templates/`（国赛-CUMCM / 美赛-MCM-ICM 双模板 + `编译自检.bat`）；`references/获奖级方法论/{abstract-writing,de-ai-writing,self-review-framework}.md`
+`workflows/07-论文撰写.md`；`paper-templates/`（美赛-MCM-ICM 随包；国赛-CUMCM 不随包、留 README 指引 + `编译自检.bat`）；`references/获奖级方法论/{abstract-writing,de-ai-writing,self-review-framework}.md`
 
 ## 门禁 / Gates
 摘要五要素；四轮自审 + Claim-Evidence；引用一一对应；编译 exit 0；去 AI 味清单

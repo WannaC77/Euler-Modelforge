@@ -80,7 +80,7 @@ M9 校准：备赛期挂接、赛中禁跑（L2）
 | 预检脚本 | `scripts/precheck_paper.py` | v2.3 | E-M8 | L0 既有 | ✅ |
 | 模板库 35 | `templates-library/`（8 类 35 模板 + `MODEL_GUIDE.md` + `requirements.txt`） | — | E-M4 | L0 既有 | ✅ |
 | utils 4 | `templates-library/utils/`（plot_style v2 / sensitivity / latex_table / figcheck） | — | E-M4/M5/M6 | L0 既有 | ✅ |
-| 论文模板双轨 | `paper-templates/`（国赛-CUMCM / 美赛-MCM-ICM / `编译自检.bat` / 两份说明） | — | E-M7 | L0 既有 | ✅ |
+| 论文模板双轨 | `paper-templates/`（美赛-MCM-ICM 随包；国赛-CUMCM 第三方许可待核**不随包**，目录内留 README 指引 / `编译自检.bat` / 两份说明） | — | E-M7 | L0 既有 | ✅ |
 | 生成侧训练台账 | `<校准台账>`（changelog v1.4） | v1.4 | E-M9 | L2 | ✅ |
 | 锚注册卡 | `<锚注册卡>/`（11 件） | — | E-M9 | L2 | ✅ |
 | 模块规格件 ×11 | `modules/E-M*/MODULE.md`（四件：目的/接口/门禁/降级） | v1.0 | 各模块 | L0 | ✅ |

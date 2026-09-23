@@ -17,10 +17,10 @@
 ## 二、编译（实测命令与产出）
 
 ```bash
-# 国赛（中文，必须 XeLaTeX）—— 编译成功即得到 example.pdf
+# 国赛（中文，必须 XeLaTeX）—— 模板需自备（见 paper-templates/国赛-CUMCM/README.md）；编译成功即得到 PDF
 cd "paper-templates/国赛-CUMCM"
-xelatex -interaction=nonstopmode example.tex
-xelatex -interaction=nonstopmode example.tex
+xelatex -interaction=nonstopmode <论文主文件>.tex
+xelatex -interaction=nonstopmode <论文主文件>.tex
 
 # 美赛（英文，pdflatex；xelatex 亦可）—— 编译成功即得到 mcmthesis-template.pdf
 cd "paper-templates/美赛-MCM-ICM"

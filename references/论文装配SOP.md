@@ -1,7 +1,7 @@
 # 论文装配 SOP（E-M7 · 07 论文装配流程）
 
 > **用途 / Purpose**：把求解产物装配成一篇可提交论文的标准流程——节次清单、双模板使用、编译自检、Claim-Evidence 步骤、引用格式、预检脚本衔接，按顺序执行。
-> **对应工作流 / Workflow**：`workflows/07-论文撰写.md`（正本）；模板 `paper-templates/`（国赛-CUMCM / 美赛-MCM-ICM + `编译自检.bat`）；方法层 `references/获奖级方法论/{abstract-writing,self-review-framework,de-ai-writing}.md`
+> **对应工作流 / Workflow**：`workflows/07-论文撰写.md`（正本）；模板 `paper-templates/`（美赛-MCM-ICM 随包；国赛-CUMCM 不随包、留 README 指引 + `编译自检.bat`）；方法层 `references/获奖级方法论/{abstract-writing,self-review-framework,de-ai-writing}.md`
 > **门禁指针 / Gates**：`Euler-ENGINE.md` §1 **E-M7**（论文装配线）——摘要五要素；四轮自审 + CE 映射；引用一一对应；编译 exit 0；去 AI 味清单；§3「论文」行
 > **降级 / Fallback**：纯文本装配 + 清单（LaTeX 不可用时用 Word 双模板 + 逐页人检，标 `[降级]`）
 
@@ -52,9 +52,9 @@ AI 使用声明（位置以官方规定为准 → 见 workflows/10）
 
 ## 3 · 双模板使用
 
-| 项 | 国赛 CUMCM（`paper-templates/国赛-CUMCM/`） | 美赛 MCM-ICM（`paper-templates/美赛-MCM-ICM/`） |
+| 项 | 国赛 CUMCM（`paper-templates/国赛-CUMCM/`，**模板需自备**） | 美赛 MCM-ICM（`paper-templates/美赛-MCM-ICM/`） |
 |---|---|---|
-| 主文件 | `example.tex`（`cumcmthesis.cls` + `cumcm2026.sty`） | `mcmthesis-template.tex`（`mcmthesis.cls` v6.3.3） |
+| 主文件 | `<论文主文件>.tex`（`cumcmthesis.cls` + `cumcm2026.sty`，模板需自备） | `mcmthesis-template.tex`（`mcmthesis.cls` v6.3.3） |
 | 编译引擎 | **必须 XeLaTeX**（pdfLaTeX 报错） | pdfLaTeX 或 XeLaTeX 均可 |
 | 实测页数（基线） | 12 页 | 11 页 |
 | 开赛前必改 | 队号/学校/日期等封面字段；电子版提交去掉封面编号页（`withoutpreface` 选项）；按规则注释/删除 `\tableofcontents` | `\mcmsetup{...}` 三处：`tcn=0000` → 控制号、`problem=A` → 题号、`\title{...}` → 标题 |
@@ -82,7 +82,7 @@ AI 使用声明（位置以官方规定为准 → 见 workflows/10）
 
 ```bash
 # 国赛（2 遍，生成目录/交叉引用）
-cd paper-templates/国赛-CUMCM && xelatex -interaction=nonstopmode <论文主文件>.tex
+cd paper-templates/国赛-CUMCM && xelatex -interaction=nonstopmode <论文主文件>.tex   # 模板需自备（见该目录 README）
 # 美赛
 cd paper-templates/美赛-MCM-ICM && pdflatex -interaction=nonstopmode <论文主文件>.tex
 ```
