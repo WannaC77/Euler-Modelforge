@@ -57,7 +57,7 @@ code agent 请先读 `AGENTS.md`。
 2. `workflows/04-建模.md` + `templates/模型卡.md` → 定模型族
 3. `workflows/05-编程求解.md` → 从 `templates-library/` 选模板，改数据跑通（固定 seed）
 4. `workflows/06-模型检验与敏感性分析.md` → 敏感性 + 互验
-5. `workflows/07-论文撰写.md` → 双轨 LaTeX（`paper-templates/`）装配
+5. `workflows/07-论文撰写.md` → LaTeX 装配（`paper-templates/`；美赛模板随包，国赛模板需自备）
 6. `workflows/08-提交与答辩.md` → 跑 `scripts/` 提交前检查
 
 ## 6. 私有校准（L2 · 可选）

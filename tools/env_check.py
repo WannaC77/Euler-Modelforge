@@ -10,7 +10,7 @@
 
 档位 / Tiers
     T0 核心：可用解释器（venv 优先，缺则系统 Python）带 numpy/scipy；Euler 根（workflows/references）在位
-    T1 数据/图件线：+ venv 四包齐 / matplotlib / pandas / 模板库 35 / utils 图件机检 / 论文双模板
+    T1 数据/图件线：+ venv 四包齐 / matplotlib / pandas / 模板库 35 / utils 图件机检 / 论文模板（美赛随包；国赛模板位需自备）
     T2 论文线：+ xelatex（PATH）/ 中文字体 / pymupdf（PDF 回读）
     缺件均为「降级可走」：按 `Euler-ENGINE.md` §1 模块表「降级」列执行并标 `[降级]`。
 
@@ -398,9 +398,13 @@ def run(root: 'Path | None' = None) -> dict:
     gs = [d for d in find_dirs(paper, '-CUMCM') if any(d.glob('*.cls'))]
     ms = [d for d in find_dirs(paper, '-MCM-ICM') if any(d.glob('*.cls'))]
     bat = (paper / '编译自检.bat').is_file()
-    item('目录 paper-templates 双模板（国赛/美赛 + 编译自检.bat）', bool(gs and ms and bat),
-         '国赛 %s｜美赛 %s｜编译自检.bat %s' % (gs[0].name if gs else '缺', ms[0].name if ms else '缺',
-                                              '在' if bat else '缺'), 'T1')
+    # 国赛模板位（07 整改）：第三方件许可待核 → **不随包**（目录内留获取指引）。
+    # T1 判据只看「美赛模板 + 编译自检.bat」；国赛位只报状态（外置/已自备），不作为缺件 —— 与 README/CHANGELOG 口径一致。
+    item('目录 paper-templates（美赛模板随包 + 编译自检.bat）', bool(ms and bat),
+         '美赛 %s｜编译自检.bat %s｜国赛模板位 %s' % (
+             ms[0].name if ms else '缺', '在' if bat else '缺',
+             ('已自备：%s' % gs[0].name) if gs else '外置（第三方许可待核，不随包；需自备，见 paper-templates/国赛-CUMCM/README.md）'),
+         'T1')
 
     pre = euler / 'scripts' / 'precheck_paper.py'
     item('scripts/precheck_paper.py（E-M8 预检）', pre.is_file(),

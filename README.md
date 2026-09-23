@@ -60,6 +60,8 @@ Euler-Modelforge/
 ├── paper-templates/           LaTeX 论文模板（美赛随包；国赛为外置位，需自备）+ 编译自检
 ├── kb/                        自建知识库（空目录 + 自建说明）
 ├── LICENSE / LICENSE-DOCS / THIRD-PARTY.md
+├── CONTRIBUTING.md / CODE_OF_CONDUCT.md / SECURITY.md   贡献 / 行为准则 / 安全策略
+├── .github/ISSUE_TEMPLATE/    缺陷与功能请求模板
 └── QUICKSTART.md / CHANGELOG.md / CITATION.cff
 ```
 

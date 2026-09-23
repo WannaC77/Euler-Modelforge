@@ -1,9 +1,9 @@
 # 论文装配 SOP（E-M7 · 07 论文装配流程）
 
-> **用途 / Purpose**：把求解产物装配成一篇可提交论文的标准流程——节次清单、双模板使用、编译自检、Claim-Evidence 步骤、引用格式、预检脚本衔接，按顺序执行。
+> **用途 / Purpose**：把求解产物装配成一篇可提交论文的标准流程——节次清单、模板使用（美赛模板随包；国赛模板需自备）、编译自检、Claim-Evidence 步骤、引用格式、预检脚本衔接，按顺序执行。
 > **对应工作流 / Workflow**：`workflows/07-论文撰写.md`（正本）；模板 `paper-templates/`（美赛-MCM-ICM 随包；国赛-CUMCM 不随包、留 README 指引 + `编译自检.bat`）；方法层 `references/获奖级方法论/{abstract-writing,self-review-framework,de-ai-writing}.md`
 > **门禁指针 / Gates**：`Euler-ENGINE.md` §1 **E-M7**（论文装配线）——摘要五要素；四轮自审 + CE 映射；引用一一对应；编译 exit 0；去 AI 味清单；§3「论文」行
-> **降级 / Fallback**：纯文本装配 + 清单（LaTeX 不可用时用 Word 双模板 + 逐页人检，标 `[降级]`）
+> **降级 / Fallback**：纯文本装配 + 清单（LaTeX 不可用时用 Word 手工排版 + 逐页人检，标 `[降级]`；本包不随附 Word 模板）
 
 ---
 

@@ -26,7 +26,7 @@
 | `tools/` | 可执行工具（`env_check` / `smoke_chain`） | 计算与自检 |
 | `scripts/` | 门禁脚本（提交前检查） | 交付前 |
 | `templates-library/` | 35 个求解模板 + `utils/` + `smoke_all.py` | 求解阶段 |
-| `paper-templates/` | 双轨 LaTeX 论文模板（美赛 / 国赛） | 写作阶段 |
+| `paper-templates/` | LaTeX 论文模板（美赛随包；国赛第三方模板需自备，见 `THIRD-PARTY.md`） | 写作阶段 |
 | `kb/` | 用户自建知识库（空目录，见 `kb/README.md`） | 可选 |
 
 ## 3. 工具 CLI 契约（统一）
