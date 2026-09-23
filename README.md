@@ -66,7 +66,7 @@ Euler-Modelforge/
 ## 运行前提
 
 - **Python 3.11+**（模板库与工具的运行基线）。
-- **依赖**：`templates-library/requirements.txt`（numpy / scipy / pandas / matplotlib / statsmodels / scikit-learn / networkx / SALib / pulp / pypdf）。
+- **依赖**：`templates-library/requirements.txt`（numpy / scipy / pandas / matplotlib / Pillow / statsmodels / scikit-learn / networkx / SALib / pulp）。
 - 建议自建虚拟环境（如 `<venv>/`）并在其中安装依赖，避免污染系统解释器。
 - **可选**：LaTeX（xelatex）用于论文编译、系统中文字体用于图件与编译。缺件不阻塞——模块表有「降级」列，缺件按降级路径执行并标 `[降级]`。
 

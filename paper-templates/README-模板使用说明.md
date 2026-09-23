@@ -1,17 +1,16 @@
 # LaTeX 模板使用说明（数模竞赛）
 
-> 2026-09-15 修复并**实测编译通过**。早期版本「未安装 LaTeX，推荐用 Overleaf」的说法**已作废**（原因：未配置镜像 + 模板本身是坏件）。
+> 本页给模板的编译方法与一键复验；编译判定标准：日志出现 `Output written on <file>.pdf` 且无 `Fatal error occurred`。
 
-## 环境状态（2026-09-15 实测）
+## 环境要求
 
-| 组件 | 状态 | 证据 |
-|------|------|------|
-| **TeX Live 2026**（主引擎，全量） | 🔄 重装中 | 9-04 那份是断点安装（411MB、bin 只拷了 25 个包装器、无 xelatex/tlmgr、texmf-var 为空），已改名留档 `<TeX 安装目录>/`，2026-09-15 19:37 起用官方 install-tl(rev 79222) 挂清华镜像非交互重装 scheme-full |
-| **MiKTeX 25.12**（用户级，备用） | ✅ 可用（已实测出 PDF） | 仓库改指国内 CTAN 镜像（TUNA/BFSU）+ 打开自动装包后，包管理完全可用；「api.miktex.org 被墙」只影响默认源，不影响镜像源 |
-| TeXworks 编辑器 | ✅ 可用 | MiKTeX 自带 |
-| Graphviz | ✅ 已装 | dot 16.0.0 |
+| 组件 | 要求 |
+|------|------|
+| LaTeX 引擎 | 任一可用安装：TeX Live（含 xelatex + ctex）或 MiKTeX（用户级即可） |
+| 中文字体 | 国赛模板需要（如 SimHei / SimSun） |
+| 宏包 | 缺包按报错装（TeX Live `tlmgr install` / MiKTeX `mpm --install`，见 `LaTeX-环境使用说明.md` §三） |
 
-引擎优先级：`<TeX 安装目录>/` 在 PATH 之前；找不到才回落 MiKTeX（`编译自检.bat` 会自动选，并打印用的是哪个）。
+引擎选择：`编译自检.bat` 自动探测 xelatex / pdflatex 并打印实际使用的引擎；多个安装并存时注意 PATH 顺序（先命中的先用）。
 
 ## 编译命令
 

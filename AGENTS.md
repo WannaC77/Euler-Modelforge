@@ -1,6 +1,6 @@
 # AGENTS.md — code agent 装载协议（Euler-Modelforge）
 
-> 本文件是**通用入口**：任何 code agent 按本文件即可装载本仓库（已在 OpenCode、Trae 与纯 shell+Python 执行器上实测；Cursor / Codex / Aider / Windsurf 等按 §5 配置）。
+> 本文件是**通用入口**：任何 code agent 按本文件即可装载本仓库（**已实测**：纯 shell+Python 执行器、零提示冷启动 agent 会话两路；OpenCode / Trae 为配置就绪说明，**非已完成实测**；Cursor / Codex / Aider / Windsurf 等按 §5 配置）。
 > **本产品不依赖**任何特定 agent、私有 skill 注册、junction、cron 或 MCP；装载只依赖「读文件 + 跑 Python」。
 
 ## 1. 三步装载（与 BOOT.md 一致）
@@ -35,15 +35,26 @@
 python tools/env_check.py [--selftest] [--json]
 python tools/smoke_chain.py [--selftest] [--root <路径>]
 python tools/<领域工具>.py --selftest
-python scripts/<checker>.py <args>        # exit 0=PASS 1=FAIL 2=usage
+python scripts/<checker>.py <args>        # exit 0=PASS 1=FAIL 2=usage 3=依赖缺失
 python templates-library/smoke_all.py [--quick]
 ```
 
 - 所有脚本：**无用户绝对路径**；`--help` 可用（rc=0）；依赖见 `templates-library/requirements.txt`
 - 门禁脚本**必须可失败**（自检里带反例）；`--selftest` 用于验证工具自身
-- 退出码语义：`0` 通过 · `1` 失败 · `2` 用法错误（含输入错误：文件不存在 / 参数缺失；**不抛栈**）
-- 自检产物落盘：`tools/_smoke_out/`、`templates-library/_smoke_out/`（已 `.gitignore`，可安全删除）；只读场景请在副本中执行
+- 退出码语义：`0` 通过 · `1` 失败 · `2` 用法/输入错误（文件不存在 / 参数缺失；**不抛栈**）· `3` 依赖缺失未执行（**未执行 ≠ 通过**）
+- 自检产物落盘：`tools/_smoke_out/`、`templates-library/_smoke_out/`（已 `.gitignore`，可安全删除；交付前跑 `clean_delivery` 清理）；只读场景请在副本中执行
 - 解释器：任一 Python 3.11+；多个解释器时脚本自探测依赖最全者（不写死路径）
+
+**`--selftest` 支持表**（不支持者传了会走用法错误 rc=2，勿当成失败）：
+
+| 支持 `--selftest` | 说明 |
+|---|---|
+| `tools/env_check.py` · `tools/smoke_chain.py` | 环境档位 / 全链冒烟（含黄金数值断言） |
+| `templates-library/utils/figcheck.py` 等 utils | 按各自 docstring 声明的参数使用；`--help` 一律 rc=0 |
+
+| 不支持（勿传 `--selftest`） |
+|---|
+| `scripts/precheck_paper.py`（退出码契约：0=PASS / 1=FAIL / 2=输入错误） · `templates-library/smoke_all.py`（用 `--quick` 或全量，另有 `--selftest` 见其 `--help`） · 各模板脚本（`templates-library/0*/*.py`，独立可跑，无自检参数） |
 
 ## 4. 降级约定（诚实性要求）
 

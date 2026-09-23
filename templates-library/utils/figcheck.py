@@ -2,6 +2,7 @@
 """figcheck —— 图纸文件级体检（命令行）
 用法：
     python utils/figcheck.py <图.png> [--min-width 800] [--min-dpi 150] [--min-content 0.005]
+    python utils/figcheck.py --help
 
 检查（对应「图交付前必过」门禁的文件层）：
   1) 能真实打开且为 PNG/JPEG（防 404 页面/半损坏文件冒充）
@@ -15,6 +16,9 @@ import os
 
 
 def main(argv):
+    if "--help" in argv or "-h" in argv:
+        print(__doc__)
+        return 0
     if len(argv) < 2:
         print(__doc__)
         return 2

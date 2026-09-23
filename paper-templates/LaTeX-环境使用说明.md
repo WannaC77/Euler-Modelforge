@@ -1,18 +1,18 @@
 # LaTeX 环境使用说明（数模竞赛）
 
-> 2026-09-15 重写并实测 | 上一版（9-04）写着「TeX Live 安装中 / MiKTeX 包管理被墙」，两条都已过时且是错的根因判断。
+> 本页只给**可移植**的环境要求、探测与编译步骤（不绑定任何一台机器）；编译是否通过以 §二 的日志判定为准。
 
-## 一、本机环境事实（2026-09-15 实测）
+## 一、环境要求与探测
 
-| 组件 | 路径 / 版本 | 状态 |
-|------|------------|------|
-| **TeX Live 2026**（主） | `<TeX 安装目录>/`（scheme-full，清华镜像装） | 🔄 重装中：9-04 是断点安装（仅 411MB、无 xelatex/tlmgr），已留档 `<TeX 安装目录>/` 并重装 |
-| **MiKTeX**（备） | `<TeX 安装目录>`（或用环境变量 `MODELFORGE_TEX` 直接指定 xelatex 路径） | 探测到即可用：xelatex/pdflatex 双模板出 PDF |
-| MiKTeX 包源 | 国内 CTAN 镜像（TUNA/BFSU…），`AutoInstall=1` | ✅ 「包管理不可用」已修复（被墙的只是默认源 api.miktex.org） |
-| Graphviz | dot 16.0.0 | ✅ |
-| TeXworks | MiKTeX 自带 | ✅ |
+| 组件 | 要求 | 探测 / 说明 |
+|------|------|------------|
+| **TeX Live**（推荐主引擎） | 全量或含 xelatex + ctex 的安装 | `xelatex -v`；国赛模板必须 XeLaTeX |
+| **MiKTeX**（可作备用） | 用户级安装即可 | `mpm --version`；与 TeX Live 并存时注意 PATH 顺序 |
+| 宏包源 | 建议指向国内 CTAN 镜像 | 见 §三（`tlmgr option repository` / `mpm --set-repository`） |
+| Graphviz | 可选（画示意图用） | `dot -v` |
+| 中文字体 | 国赛模板需要（如 SimHei / SimSun） | 缺字体会报 `SimHei(0)/b/n undefined`（不影响出 PDF） |
 
-**一句话**：9-04 的破局点不是「TeX Live 没装完」，而是 ①TeX Live 断点未续 ②MiKTeX 没换源 ③**美赛模板本身是坏件**（见第四节）。现在前三项已解决，双模板实测可编译。
+**一句话**：本页只给可移植的安装 / 探测 / 编译步骤；环境是否可用，以 §二 的编译判定（日志出现 `Output written on <file>.pdf`）为准。
 
 ## 二、编译（实测命令与产出）
 
