@@ -34,7 +34,7 @@
 | E-M4 求解工坊 | 模型 → 求解 + 复现：模板库直用、artifacts 落盘、复现卡齐 |
 | E-M5 检验台 | 解 → 敏感性分析 + 互验：扫描报告、分级互验、量纲量级核对 |
 | E-M6 图件车间 | 数据 → 出版级图：PNG / PDF / SVG 三格式 + 图注，黑白与色盲友好检查 |
-| E-M7 论文装配线 | 求解 → 论文：LaTeX 双模板装配、四轮自审、Claim-Evidence 映射、编译自检 |
+| E-M7 论文装配线 | 求解 → 论文：LaTeX 双模板装配（国赛模板需自备）、四轮自审、Claim-Evidence 映射、编译自检 |
 | E-M8 提交合规闸 | 论文 → 提交包：提交前机检、打包清单、AI 使用记录提醒 |
 | E-M9 校准与锚（L2 挂接） | 只声明边界：私有校准数据与锚注册备赛期只读挂接，赛中禁跑 |
 | E-M10 编排器 | runbook 选线（RB-E1–E5）+ 交接卡（输入 / 产物 / 门禁 / 降级 / 下一步） |
@@ -57,7 +57,7 @@ Euler-Modelforge/
 ├── tools/                     env_check.py · smoke_chain.py
 ├── scripts/                   precheck_paper.py
 ├── templates-library/         求解模板库 + utils/ + MODEL_GUIDE.md + smoke_all.py
-├── paper-templates/           LaTeX 论文模板（国赛 / 美赛两套）+ 编译自检
+├── paper-templates/           LaTeX 论文模板（美赛随包；国赛为外置位，需自备）+ 编译自检
 ├── kb/                        自建知识库（空目录 + 自建说明）
 ├── LICENSE / LICENSE-DOCS / THIRD-PARTY.md
 └── QUICKSTART.md / CHANGELOG.md / CITATION.cff

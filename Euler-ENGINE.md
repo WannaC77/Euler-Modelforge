@@ -33,7 +33,7 @@
 | E-M4 | 求解工坊 | 模型→求解+复现 | `workflows/05`；`templates-library/`（35 模板 + utils + <venv>） | 求解报告 + artifacts | 模板冒烟 rc=0；种子固定；报告卡齐；改进四件事（基线/改动/量化/公平） | 手写脚本 + 人检 |
 | E-M5 | 检验台 | 解→敏感性+互验 | `workflows/06`；`templates-library/utils/sensitivity.py` | 敏感性报告卡 | scan_report 在；互验 ≥1 处 E3；量纲过；题型 ≥2 种检验 | 手工敏感性分析 |
 | E-M6 | 图件车间 | 数据→出版级图 | `references/图件管线.md`；`templates-library/utils/plot_style.py`（v2）+ `figcheck.py` | PNG+PDF+SVG + 图注 | 三闸（audit_fig / figcheck / vision；无 vision 则双闸+人检） | 双闸 + 人检 |
-| E-M7 | 论文装配线 | 求解→论文 | `workflows/07`；`paper-templates/`（双模板 + `编译自检.bat`） | 论文 + 自查 + Claim-Evidence 表 | 摘要五要素；四轮自审 + CE 映射；引用一一对应；编译 exit 0；去 AI 味清单 | 纯文本装配 + 清单 |
+| E-M7 | 论文装配线 | 求解→论文 | `workflows/07`；`paper-templates/`（美赛模板随包；国赛模板位需自备 + `编译自检.bat`） | 论文 + 自查 + Claim-Evidence 表 | 摘要五要素；四轮自审 + CE 映射；引用一一对应；编译 exit 0；去 AI 味清单 | 纯文本装配 + 清单 |
 | E-M8 | 提交合规闸 | 论文→提交包 | `workflows/08`·`10`；`scripts/precheck_paper.py`（v2.3） | 提交包 + AI 记录表 | precheck C1/B1 无 FAIL；MD5 + 打包清单；AI 记录提醒 | 清单人工核 |
 | E-M9 | 校准与锚（L2 挂接） | 只声明边界 | `<校准台账>`（存在性） | 无 | 只声明「存在校准台账、备赛期只读挂接」；**赛中禁跑**；个人判档线不入门禁 | 不挂接亦可走全链 |
 | E-M10 | 编排器 | runbook+交接卡 | 本文件 §4/§7 | 交接卡 | 每交付一次交接记录 | 口述交接 + 记录 |
@@ -94,7 +94,7 @@ M9 校准：备赛期挂接、赛中禁跑（L2）
 |---|---|
 | 参考解释器 | Python 3.11+（推荐 3.13；`tools/env_check.py` 自探测依赖最全的解释器，不写死路径） |
 | 虚拟环境（可选） | 自建 `<venv>`；缺件时回退系统 Python 并按模块「降级」列声明 |
-| LaTeX | 双模板 + `编译自检.bat`（xelatex）；缺字体按降级记录 |
+| LaTeX | 美赛模板随包 + 国赛模板位（需自备）+ `编译自检.bat`（xelatex）；缺字体/缺模板按降级记录 |
 | 可选件 | TeX 全套 / Word COM——缺件按模块降级列声明 |
 
 > **档位以本机 `env_check.py` 输出为准**：本卡不记录任何特定机器的实测值（T0/T1/T2 为连续达标口径——低档缺件会把整体档位压到该档；报告另给「分档可用性」逐档说明）。

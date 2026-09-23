@@ -24,7 +24,7 @@ cd paper-templates/美赛-MCM-ICM
 pdflatex -interaction=nonstopmode mcmthesis-template.tex
 ```
 
-一键复验（双模板各两遍编译 + 断言 PDF 与日志，退出码 0=通过）：
+一键复验（对已就位的模板各两遍编译 + 断言 PDF 与日志；缺件分支打印 `[SKIP]`，退出码 0=通过）：
 
 ```bash
 paper-templates/编译自检.bat        # 双击也行；赛前一周必跑一次

@@ -30,7 +30,7 @@ pdflatex -interaction=nonstopmode mcmthesis-template.tex
 
 判定通过的唯一标准：log 里出现 `Output written on <file>.pdf`，且**没有** `Fatal error occurred`。只看进程退出码会被交互式警告骗过去。
 
-**赛前冒烟测试**：双击 `paper-templates/编译自检.bat`（自动选引擎、双模板各两遍、断言 PDF 与日志、打印用了哪个引擎、退出码 0/1）。赛前一周必跑。
+**赛前冒烟测试**：双击 `paper-templates/编译自检.bat`（自动选引擎、对**已就位**的模板各两遍编译、断言 PDF 与日志、打印用了哪个引擎；缺件分支打印 `[SKIP]`，退出码 0/1）。赛前一周必跑。
 
 ## 三、包管理（缺宏包时）
 

@@ -50,7 +50,7 @@ AI 使用声明（位置以官方规定为准 → 见 workflows/10）
 | 附录 | 复现卡产物列汇总 | 核心代码摘录 + 一行注释；禁整屏截图 |
 | AI 使用声明 | `templates/AI记录模板.md` | 模板 A/B；位置按官方最新规定 |
 
-## 3 · 双模板使用
+## 3 · 双模板使用（国赛模板需自备，见 §2 对照表）
 
 | 项 | 国赛 CUMCM（`paper-templates/国赛-CUMCM/`，**模板需自备**） | 美赛 MCM-ICM（`paper-templates/美赛-MCM-ICM/`） |
 |---|---|---|
@@ -64,7 +64,7 @@ AI 使用声明（位置以官方规定为准 → 见 workflows/10）
 | 特别提醒 | 国赛官方以 Word 提交为主流 → 导出 PDF 前核对当年提交系统是否接受 PDF；AI 声明位置见 `workflows/10` | 摘要含 Hook 句 → 见 `abstract-writing.md` §美赛 Summary Sheet 模板 |
 
 - **图片与表格**：论文图统一由 `templates-library/utils/plot_style.py` 输出 PDF（LaTeX 插入）；表格用 `utils/latex_table.py` 生成三线表后粘贴。
-- 符号表按 `templates/符号表.tex` 的用法块 `\input`（包依赖 longtable/booktabs 双模板已载）。
+- 符号表按 `templates/符号表.tex` 的用法块 `\input`（包依赖 longtable/booktabs；随包的美赛 cls 已载，国赛 cls 需自备）。
 
 ## 4 · 编译自检（`编译自检.bat`）流程
 
@@ -73,7 +73,7 @@ AI 使用声明（位置以官方规定为准 → 见 workflows/10）
 | 1 | 双击 `paper-templates/编译自检.bat`（或 cmd 里运行） | 脚本自动选引擎：TeX Live 优先，缺则回落 MiKTeX |
 | 2 | 脚本对**两个模板**各编译两遍 | 国赛 `xelatex`（2 pass）；美赛 `pdflatex`（2 pass） |
 | 3 | 断言：PDF 生成 + 日志含 `Output written on` + 无 `Fatal error` | 三项全过 → `[PASS]` |
-| 4 | 看退出码 | **exit 0 = 双模板全 PASS**；exit 1 = 有 FAIL；exit 2 = 未找到 TeX 引擎 |
+| 4 | 看退出码 | **exit 0 = 可用模板全 PASS（缺件分支打印 SKIP，不算失败）**；exit 1 = 有 FAIL；exit 2 = 未找到 TeX 引擎 |
 | 5 | 记录留证 | 退出码 + 打印的引擎/路径/文件大小写入交接卡（`Euler-ENGINE.md` §7） |
 
 **已知无害警告**（不用管，`LaTeX-环境使用说明.md`）：`Font shape 'TU/SimHei(0)/b/n' undefined`、`Label 'LastPage' multiply defined`、`float specifier changed to ht`——只要 log 有 `Output written on *.pdf` 且无 `Fatal error` 即通过。
