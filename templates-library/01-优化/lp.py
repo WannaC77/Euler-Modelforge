@@ -9,6 +9,13 @@
     2. 运行 python lp.py
     3. 输出最优值 + 决策变量取值（可直接写进论文）
 """
+# ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
+for _dep in ("pulp",):
+    try:
+        __import__(_dep)
+    except ImportError:
+        print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
+        raise SystemExit(3)
 import pulp
 
 # ============ 问题参数（改这里即可）============

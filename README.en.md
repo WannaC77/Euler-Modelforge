@@ -1,6 +1,6 @@
 # Euler-Modelforge
 
-> **A workflow engine for mathematical-modeling contests (MCM/ICM · CUMCM)** — from problem statement to submittable paper, with **35 verified solver templates** and **dual LaTeX paper templates**.
+> **A workflow engine for mathematical-modeling contests (MCM/ICM · CUMCM)** — from problem statement to submittable paper, with **35 solver templates (smoke-covered)** and the **MCM LaTeX paper template bundled** (CUMCM template: bring your own).
 > Chinese version: [`README.md`](README.md)
 
 `Euler-Modelforge` is not a "one-click paper generator". It is a **reproducible, time-boxed process**: every step has an executable gate, every claim maps back to evidence, and every missing component degrades honestly with a `[降级]` (degraded) marker instead of pretending to work.
@@ -75,7 +75,7 @@ Euler-Modelforge/
 ├── tools/                  # env_check.py · smoke_chain.py
 ├── scripts/                # precheck_paper.py
 ├── templates-library/      # 35 solver templates + utils + smoke_all.py
-├── paper-templates/        # MCM (mcmthesis) + CUMCM (cumcmthesis)
+├── paper-templates/        # MCM (mcmthesis, bundled) + CUMCM (bring your own; see its README)
 ├── kb/                     # your own knowledge base (empty; see kb/README.md)
 └── .github/workflows/ci.yml
 ```

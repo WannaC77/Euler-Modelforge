@@ -14,7 +14,7 @@ labels: bug
 ## 复现步骤
 
 ```bash
-# 1. 请粘贴**可直接复跑**的命令（不要用真实实验数据，用合成数据或最小样例）
+# 1. 请粘贴**可直接复跑**的命令（不要用真实赛题数据，用合成数据或最小样例）
 # 2.
 ```
 
@@ -32,7 +32,7 @@ labels: bug
 
 - [ ] `python tools/env_check.py --selftest`
 - [ ] `python tools/smoke_chain.py --selftest`
-- [ ] 对应工具的 `--selftest`（如 `python tools/nca.py --selftest`）
+- [ ] 对应工具的 `--selftest`（如 `python templates-library/smoke_all.py --selftest`）
 - [ ] 其它（请写明）：
 
 ```text

@@ -3,6 +3,13 @@
 适用场景：网络容量分配、最大输送量、物流/电力/通信网络瓶颈分析（美赛 B/D、国赛 B）。
 流程：建图 → max_flow 求最大流 → 顺带得最小割。
 """
+# ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
+for _dep in ("networkx",):
+    try:
+        __import__(_dep)
+    except ImportError:
+        print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
+        raise SystemExit(3)
 import networkx as nx
 
 

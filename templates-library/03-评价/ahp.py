@@ -8,6 +8,13 @@
 
 ⚠️ 评委关注点：判断矩阵一致性必须检验；CR>0.1 说明判断矛盾，需重填矩阵。
 """
+# ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
+for _dep in ("numpy",):
+    try:
+        __import__(_dep)
+    except ImportError:
+        print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
+        raise SystemExit(3)
 import numpy as np
 
 

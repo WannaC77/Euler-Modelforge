@@ -3,6 +3,13 @@
 适用场景：社交网络、交通网络、关系网络分析（美赛 B/D/E/F 网络类题）。
 输出：网络基础指标 + 各节点中心性 + 社区划分 + 图。
 """
+# ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
+for _dep in ("networkx", "matplotlib"):
+    try:
+        __import__(_dep)
+    except ImportError:
+        print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
+        raise SystemExit(3)
 import networkx as nx
 
 

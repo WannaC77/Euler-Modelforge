@@ -80,7 +80,18 @@ python tools/smoke_chain.py --selftest          # 全链冒烟
 python templates-library/smoke_all.py --quick   # 模板库冒烟（每类首件）
 ```
 
-约定：全 PASS / SKIP 即 rc=0；**SKIP 不算 FAIL**；WARN 需登记；FAIL 非零退出。退出码语义统一为 `0` 通过 · `1` 失败 · `2` 用法错误（含输入错误，**不抛栈**）。
+约定：全 PASS / SKIP 即 rc=0；**SKIP 不算 FAIL**；WARN 需登记；FAIL 非零退出。退出码语义统一为 `0` 通过 · `1` 失败 · `2` 用法错误（含输入错误，**不抛栈**）· `3` 依赖缺失未执行（**未执行 ≠ 通过**）。
+
+### 验收状态（可复跑）
+
+| 面 | 判据 | 命令 |
+|---|---|---|
+| 模板库 35 件 | 8 类逐件跑通（rc=0；缺依赖 → rc=3 未执行，单列 SKIP） | `python templates-library/smoke_all.py`（CI 跑 `--quick` 8 件） |
+| 关键数值 | 合成 LP 解析真值（精确有理数顶点法）±1e-6 + 敏感性区间 | `python tools/smoke_chain.py --selftest` |
+| 环境档位 | T0/T1/T2 降级探测 | `python tools/env_check.py --selftest` |
+| 提交预检 | 退出码契约 0/1/2 | `python scripts/precheck_paper.py` |
+
+> 模板层只判「跑通 / 未执行」，**数值真值断言集中在 `tools/smoke_chain.py`**（不逐件复制真值，避免 35 份重复断言各自漂移）。
 
 ## L2 自建（不随包分发）
 

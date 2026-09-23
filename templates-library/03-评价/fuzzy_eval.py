@@ -14,6 +14,13 @@
    ② 权重向量和应为 1；③ 打分法把评语等级折算成分值(如优=95)，便于横向比较与论文输出。
 """
 
+# ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
+for _dep in ("numpy",):
+    try:
+        __import__(_dep)
+    except ImportError:
+        print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
+        raise SystemExit(3)
 import numpy as np
 
 # ========================== 问题参数（比赛时改这里换数据） ==========================

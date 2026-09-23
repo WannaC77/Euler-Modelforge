@@ -23,9 +23,10 @@ Markdown 报告。比赛前、改模板后各跑一次，避免「模板在盘�
 
 退出码
 ------
-    0 = 全部 PASS
+    0 = 全部 PASS（或「有 PASS + 有 SKIP」：SKIP 单列，不读成通过）
     1 = 存在 FAIL / TIMEOUT / ERROR（任一非 0 即失败，便于串进 CI 或上游命令）
     2 = 参数或环境错误（如一件模板都没发现）
+    3 = 一件都没跑成（全 SKIP：模板自报依赖缺失，**未执行 ≠ 通过**）
 
 解释器解析
 ----------
@@ -35,8 +36,9 @@ Markdown 报告。比赛前、改模板后各跑一次，避免「模板在盘�
 
 判定口径
 --------
-    只看子进程 returncode：rc==0 → PASS，否则 FAIL。**不做数值断言**——模板打印的
-    内容是给人判读的，数值正确性由模板自身验收用例保证（见 README 验收状态）。
+    只看子进程 returncode：rc==0 → PASS；**rc==3 → SKIP**（模板自报「依赖缺失未执行」，
+    单列计数、不读成通过）；其余 → FAIL。**不做数值断言**——模板打印的内容是给人判读的，
+    数值真值断言集中在 `tools/smoke_chain.py` 的黄金断言链（见 README「验收状态」）。
     超时（默认 120s）单独记 TIMEOUT，不误判成 FAIL。
 
 输出摘要取法
@@ -125,7 +127,8 @@ def run_one(py, category, path, timeout=TIMEOUT_S):
         cp = subprocess.run([str(py), path.name], cwd=str(path.parent),
                             capture_output=True, text=True, encoding="utf-8",
                             errors="replace", timeout=timeout, env=env)
-        rc, status = cp.returncode, ("PASS" if cp.returncode == 0 else "FAIL")
+        rc = cp.returncode
+        status = "PASS" if rc == 0 else ("SKIP" if rc == 3 else "FAIL")   # rc=3＝模板自报依赖缺失
         out, err = cp.stdout or "", cp.stderr or ""
     except subprocess.TimeoutExpired as e:
         rc, status = None, "TIMEOUT"
@@ -140,6 +143,8 @@ def run_one(py, category, path, timeout=TIMEOUT_S):
         summary = f"超时 >{timeout:g}s 被终止"
     elif status == "PASS":
         summary = tail_out[-1] if tail_out else "(无输出)"
+    elif status == "SKIP":          # rc=3：模板自报缺依赖（[未执行] 行在 stdout）
+        summary = tail_out[-1] if tail_out else (tail_err[-1] if tail_err else "依赖缺失未执行")
     else:  # FAIL / ERROR：优先看 stderr（异常栈尾行最有用）
         summary = tail_err[-1] if tail_err else (tail_out[-1] if tail_out else "(无输出)")
 
@@ -202,7 +207,7 @@ def print_table(results):
         if prev is not None and r["category"] != prev:
             print("-" * _disp_width(header))  # 类间分隔线
         prev = r["category"]
-        mark = {"PASS": "PASS", "FAIL": "FAIL", "TIMEOUT": "TIMEOUT", "ERROR": "ERROR"}[r["status"]]
+        mark = {"PASS": "PASS", "FAIL": "FAIL", "TIMEOUT": "TIMEOUT", "ERROR": "ERROR", "SKIP": "SKIP"}[r["status"]]
         print("  ".join(_pad(x, w) for x, w in (
             (r["name"], cols[0][1]),
             (r["category"], cols[1][1]),
@@ -221,7 +226,7 @@ def _md_cell(s):
 
 
 def _counts(results):
-    c = {"PASS": 0, "FAIL": 0, "TIMEOUT": 0, "ERROR": 0}
+    c = {"PASS": 0, "FAIL": 0, "TIMEOUT": 0, "ERROR": 0, "SKIP": 0}
     for r in results:
         c[r["status"]] = c.get(r["status"], 0) + 1
     return c
@@ -231,7 +236,7 @@ def build_markdown(results, py, py_tag, mode, started, elapsed):
     """生成 Markdown 报告文本（件名|类别|rc|判定|输出摘要 + 汇总 + 分类小计）。"""
     c = _counts(results)
     n = len(results)
-    bad = n - c["PASS"]
+    bad = c["FAIL"] + c["TIMEOUT"] + c["ERROR"]          # SKIP 不算失败（单列）
     L = []
     L.append("# 模板冒烟报告（smoke_all.py）")
     L.append("")
@@ -239,8 +244,10 @@ def build_markdown(results, py, py_tag, mode, started, elapsed):
     L.append(f"- 解释器：`{py}`（{py_tag}）")
     L.append(f"- 模式：{mode}｜件数：{n}｜单件超时：{TIMEOUT_S}s｜总耗时：{elapsed:.2f}s")
     L.append(f"- 结果：**{c['PASS']}/{n} PASS**"
+             + (f"；SKIP {c['SKIP']}（依赖缺失未执行，**不计通过**）" if c["SKIP"] else "")
              + (f"；FAIL {c['FAIL']}，TIMEOUT {c['TIMEOUT']}，ERROR {c['ERROR']}" if bad else "")
-             + (" － 全部通过" if bad == 0 else " － 存在失败项"))
+             + (" － 全部通过" if bad == 0 and c["SKIP"] == 0 else
+                (" － 存在失败项" if bad else " － 无失败项；有 SKIP（未执行）")))
     L.append("")
     L.append("| 件名 | 类别 | rc | 判定 | 输出摘要（末行） |")
     L.append("|---|---|---|---|---|")
@@ -251,8 +258,8 @@ def build_markdown(results, py, py_tag, mode, started, elapsed):
     L.append("")
     L.append("## 分类小计")
     L.append("")
-    L.append("| 类别 | 件数 | PASS | 非 PASS |")
-    L.append("|---|---|---|---|")
+    L.append("| 类别 | 件数 | PASS | SKIP | 非 PASS |")
+    L.append("|---|---|---|---|---|")
     cats = []
     for r in results:                      # 保持出现顺序
         if r["category"] not in cats:
@@ -260,10 +267,11 @@ def build_markdown(results, py, py_tag, mode, started, elapsed):
     for cat in cats:
         rows = [r for r in results if r["category"] == cat]
         p = sum(1 for r in rows if r["status"] == "PASS")
-        L.append(f"| {_md_cell(cat)} | {len(rows)} | {p} | {len(rows) - p} |")
+        s = sum(1 for r in rows if r["status"] == "SKIP")
+        L.append(f"| {_md_cell(cat)} | {len(rows)} | {p} | {s} | {len(rows) - p - s} |")
     L.append("")
     if bad:
-        L.append("## 失败明细")
+        L.append("## 未通过明细（FAIL / TIMEOUT / ERROR / SKIP）")
         L.append("")
         for r in results:
             if r["status"] == "PASS":
@@ -311,7 +319,7 @@ def emit(results, py, py_tag, mode, tag="", want_json=False):
             "timeout_s": TIMEOUT_S,
             "total": n,
             "pass": c["PASS"], "fail": c["FAIL"],
-            "timeout": c["TIMEOUT"], "error": c["ERROR"],
+            "timeout": c["TIMEOUT"], "error": c["ERROR"], "skip": c["SKIP"],
             "elapsed_s": round(elapsed, 3),
             "results": results,
         }
@@ -389,7 +397,8 @@ def main(argv=None):
     c = _counts(results)
     n = len(results)
     print(f"\n汇总：{c['PASS']}/{n} PASS"
-          + (f"｜FAIL {c['FAIL']}｜TIMEOUT {c['TIMEOUT']}｜ERROR {c['ERROR']}" if n - c['PASS'] else "｜无失败项")
+          + (f"｜SKIP {c['SKIP']}（依赖缺失未执行）" if c["SKIP"] else "")
+          + (f"｜FAIL {c['FAIL']}｜TIMEOUT {c['TIMEOUT']}｜ERROR {c['ERROR']}" if (c["FAIL"] + c["TIMEOUT"] + c["ERROR"]) else "｜无失败项")
           + f"｜总耗时 {sum(r['seconds'] for r in results):.2f}s")
 
     # ---- 落盘 ----
@@ -400,13 +409,22 @@ def main(argv=None):
     for p in outs:
         print(f"[报告] {p.relative_to(HERE).as_posix()}")
 
-    ok = (c["PASS"] == n)
+    fails = c["FAIL"] + c["TIMEOUT"] + c["ERROR"]
+    structural_ok = True
+    verdict_ok = None
     if args.selftest:
-        ok = ok and (ok_discovery is True) and len(results) == len(SELFTEST_TARGETS)
-        print(f"\n[SELFTEST] {'✓ 通过' if ok else '✗ 未通过'}"
-              f"（3 件代表全 PASS + 8 类 35 件可发现）")
-    print(f"[退出码] {0 if ok else 1}")
-    return 0 if ok else 1
+        structural_ok = (ok_discovery is True) and len(results) == len(SELFTEST_TARGETS)
+        verdict_ok = structural_ok and not fails and not c["SKIP"]
+        print(f"\n[SELFTEST] {'✓ 通过' if verdict_ok else '✗ 未通过'}"
+              f"（3 件代表全 PASS + 8 类 35 件可发现；SKIP 不算通过）")
+    if fails or not structural_ok:
+        rc = 1
+    elif verdict_ok is False or c["PASS"] == 0:
+        rc = 3                                    # 未执行 ≠ 通过：selftest 有 SKIP / 普通模式全 SKIP
+    else:
+        rc = 0
+    print(f"[退出码] {rc}")
+    return rc
 
 
 if __name__ == "__main__":

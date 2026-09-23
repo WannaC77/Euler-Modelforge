@@ -1,6 +1,6 @@
 # Euler-Modelforge · BOOT（冷启动件 · ≤2 KB）
 
-> **一句话**：数模竞赛生成引擎——从赛题到可提交论文的全链工作流（MCM/ICM 与 CUMCM 双赛事），含 35 个已验证求解模板与美赛 LaTeX 论文模板（国赛模板需自备）。
+> **一句话**：数模竞赛生成引擎——从赛题到可提交论文的全链工作流（MCM/ICM 与 CUMCM 双赛事），含 35 个求解模板（`templates-library/smoke_all.py` 冒烟覆盖）与美赛 LaTeX 论文模板（国赛模板需自备）。
 > **本产品不依赖**任何特定 agent、CLI、调度器或 API key：任何能读文件 + 跑 Python 3.11+ 的人或 agent 都可用。
 
 ## 五条铁律（摘要）

@@ -20,6 +20,8 @@
 3. **模板必须可自检**：`templates-library/**` 下的模板要能在 `templates-library/smoke_all.py` 里跑通；
    涉及数值的模板请附**已知答案**（解析解或标准算例）与容差。
 4. **退出码语义统一**：`0` 通过 · `1` 失败 · `2` 用法/输入错误 · `3` 依赖缺失未执行（**未执行 ≠ 通过**）。
+   适用范围：`tools/` · `scripts/` · `templates-library/smoke_all.py` 等 **CLI 入口**（`--help` → 0；缺件 → 2/3；**不抛未捕获栈**）；
+   `templates-library/0*/*.py` 是「改常量区直接运行」的**演示模板**（无 CLI 参数）：缺依赖时统一打印缺失包名并 **rc=3**。
 5. **文本件**：UTF-8 无 BOM、LF 行尾、包内相对路径（正斜杠）、不写绝对路径与本机路径。
 6. **不在包内留生成物**：自检 / 冒烟产物落 `_smoke_out/`、`templates-library/data/*.png`（均已 gitignore），提交前清理。
 

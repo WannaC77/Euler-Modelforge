@@ -1,10 +1,19 @@
 """时间序列 ARIMA 预测模板。
 
 适用场景：有较长历史数据（≥50 点）的单变量时间序列预测（国赛 C、美赛 C 常见）。
-流程：ADF 平稳性检验 → 差分 → ACF/PACF 定阶（或 AIC 自动搜索）→ 拟合 → 预测 → 残差检验。
+流程：ADF 平稳性检验 → 差分定阶 d → AIC 网格搜索 (p,d,q) → 拟合 → 预测。
+说明：本模板只做 AIC 自动搜索（不画 ACF/PACF、不做残差检验——需要时自行加 statsmodels 的 acf/plot_acf 与 Ljung-Box 检验）；
+      示例数据上 statsmodels 可能打印 ConvergenceWarning（AIC 网格里个别阶不收敛，属预期，最终阶取 AIC 最小者）。
 
-依赖：statsmodels。
+依赖：statsmodels（缺依赖 → rc=3 未执行）。
 """
+# ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
+for _dep in ("numpy", "statsmodels", "matplotlib"):
+    try:
+        __import__(_dep)
+    except ImportError:
+        print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
+        raise SystemExit(3)
 import numpy as np
 import warnings
 warnings.filterwarnings("ignore")

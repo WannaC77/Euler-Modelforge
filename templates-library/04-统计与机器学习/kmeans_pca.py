@@ -3,6 +3,13 @@
 适用场景：无标签样本分类（国赛 C、美赛 C/E 数据题常见）；先 PCA 看结构、再聚类。
 依赖：scikit-learn。
 """
+# ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
+for _dep in ("numpy", "sklearn", "matplotlib"):
+    try:
+        __import__(_dep)
+    except ImportError:
+        print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
+        raise SystemExit(3)
 import numpy as np
 
 

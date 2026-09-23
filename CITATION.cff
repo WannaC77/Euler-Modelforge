@@ -1,7 +1,7 @@
 cff-version: 1.2.0
 message: "If you use this workflow system in your work, please cite it as below."
 title: "Euler-Modelforge — 数模竞赛生成引擎（MCM/ICM · CUMCM）"
-abstract: "A reproducible, time-boxed workflow engine for mathematical-modeling contests: problem decomposition, model selection, 35 verified solver templates, sensitivity/validation gates, figure pipeline and dual LaTeX paper templates."
+abstract: "A reproducible, time-boxed workflow engine for mathematical-modeling contests: problem decomposition, model selection, 35 solver templates, sensitivity/validation gates, figure pipeline and the MCM LaTeX paper template (CUMCM template not bundled)."
 type: software
 authors:
   - name: "<GitHub 用户名>"
