@@ -7,4 +7,4 @@ pulp>=2.7,<4
 statsmodels>=0.14,<1
 scikit-learn>=1.3,<2
 networkx>=3.1,<4
-SALib>=1.4,<2
+SALib>=1.6.0,<2
