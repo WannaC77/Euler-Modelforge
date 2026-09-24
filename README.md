@@ -4,10 +4,12 @@
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![docs](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey)
 ![smoke](https://img.shields.io/badge/smoke-35%2F35%20PASS-brightgreen)
+[![CI](https://github.com/WannaC77/Euler-Modelforge/actions/workflows/ci.yml/badge.svg)](https://github.com/WannaC77/Euler-Modelforge/actions/workflows/ci.yml)
 
 > **从赛题到可提交论文的硬时间盒流程**：每一步有门禁，每一个结论留证据，缺件照实标 `[降级]`。
 > **英文版 / English version**：`README.en.md`（本文件为中文正本；同步承诺见 `CONTRIBUTING.md`「双语同步 SLA」）
-> **CI**：`.github/workflows/ci.yml` 在每次 push / PR 上跑自检与冒烟（Python 3.11 + 3.13 双版本）；CI 徽章与仓库链接在仓库 URL 确定后同批补上。
+> **CI**：`.github/workflows/ci.yml` 在每次 push / PR 上跑自检与冒烟（Python 3.11 + 3.13 双版本）——上方 CI 徽章为实时状态。
+> **仓库 / Releases**：<https://github.com/WannaC77/Euler-Modelforge> · <https://github.com/WannaC77/Euler-Modelforge/releases>
 
 ---
 

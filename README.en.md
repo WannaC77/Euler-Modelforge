@@ -3,7 +3,8 @@
 > **A workflow engine for mathematical-modeling contests (MCM/ICM · CUMCM)** — from problem statement to submittable paper, with **35 solver templates (smoke-covered)** and the **MCM LaTeX paper template bundled** (CUMCM template: bring your own).
 > **Every step has a gate; every claim leaves evidence.** Missing pieces are marked `[降级]`/`SKIP` and always reported — never silently passed.
 > Chinese version: [`README.md`](README.md) (Chinese is the source of truth; the English mirror follows within 7 days — see `CONTRIBUTING.md`).
-> **CI**: `.github/workflows/ci.yml` runs the self-checks and smoke chains on every push/PR (Python 3.11 + 3.13); the CI badge and repository links land once the repository URL is fixed.
+> **CI**: `.github/workflows/ci.yml` runs the self-checks and smoke chains on every push/PR (Python 3.11 + 3.13) — [![CI](https://github.com/WannaC77/Euler-Modelforge/actions/workflows/ci.yml/badge.svg)](https://github.com/WannaC77/Euler-Modelforge/actions/workflows/ci.yml).
+> **Repository / Releases**: <https://github.com/WannaC77/Euler-Modelforge> · <https://github.com/WannaC77/Euler-Modelforge/releases>
 
 `Euler-Modelforge` is not a "one-click paper generator". It is a **reproducible, time-boxed process**: every step has an executable gate, every claim maps back to evidence, and every missing component degrades honestly with a `[降级]` (degraded) marker instead of pretending to work.
 
