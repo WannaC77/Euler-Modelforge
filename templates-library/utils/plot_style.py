@@ -17,6 +17,13 @@ v2 吸收（自研落地，2026-09-19；来源仅取方法与配置思路）：
 - 字号门禁（标题≥10pt/节点≥8pt/边标签≥7.5pt@最终插入宽度）理念（自 xxszyh/cumcm-visualization 摘译）
 - 调色板三原则：同族深浅 > 色相跳跃；灰度打印安全；红绿仅方向信号
 """
+# ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
+for _dep in ("matplotlib", "numpy"):
+    try:
+        __import__(_dep)
+    except ImportError:
+        print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
+        raise SystemExit(3)
 import os
 import matplotlib
 import matplotlib.pyplot as plt

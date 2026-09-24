@@ -27,3 +27,10 @@
 - `paper-templates/国赛-CUMCM/` 的第三方模板（`cumcmthesis.cls` / `cumcm2026.sty`，许可待核）**不随本包分发**——
   该目录内只留获取与启用指引（`paper-templates/国赛-CUMCM/README.md`）；美赛模板随包分发
 - 缺失 LaTeX / 依赖时论文链降级为 `.tex` 交付（不生成 PDF）
+
+## 版本与 tag 约定
+
+- 版本号遵循 **SemVer**（`vMAJOR.MINOR.PATCH`）；首次公开发行为 `v1.0.0`，tag 与提交同批打（`git tag -a v1.0.0`）。
+- **PATCH**：文案/口径纠错、断言补注（不改契约）；**MINOR**：新增模块/模板/判据（向后兼容）；
+  **MAJOR**：判据或契约**不兼容**变更（如退出码语义、必需件集合、目录结构）。
+- 每个 tag 的说明直接用本文件对应小节的条目；`CHANGELOG.md` 与 tag 一一对应，改名/移动件须在同一小节登记。

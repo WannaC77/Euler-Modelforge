@@ -56,7 +56,7 @@ AI 使用声明（位置以官方规定为准 → 见 workflows/10）
 |---|---|---|
 | 主文件 | `<论文主文件>.tex`（`cumcmthesis.cls` + `cumcm2026.sty`，模板需自备） | `mcmthesis-template.tex`（`mcmthesis.cls` v6.3.3） |
 | 编译引擎 | **必须 XeLaTeX**（pdfLaTeX 报错） | pdfLaTeX 或 XeLaTeX 均可 |
-| 实测页数（基线） | 12 页 | 11 页 |
+| 实测页数（基线） | 不随包（自备模板后自行实测） | 11 页（**本包实测**） |
 | 开赛前必改 | 队号/学校/日期等封面字段；电子版提交去掉封面编号页（`withoutpreface` 选项）；按规则注释/删除 `\tableofcontents` | `\mcmsetup{...}` 三处：`tcn=0000` → 控制号、`problem=A` → 题号、`\title{...}` → 标题 |
 | 摘要位置 | `\begin{abstract} … \end{abstract}`（含 `\keywords{}`） | `\begin{abstract}` 内（自动生成 Summary Sheet 页） |
 | 图片 / 代码 | 图片放 `figures/` | 图片放 `figures/`（已在 `\graphicspath`）；代码清单用 `code/` + `\lstinputlisting` |

@@ -4,6 +4,13 @@
     from utils.latex_table import to_latex
     latex = to_latex(data, headers=["Item", "Value"], caption="...")
 """
+# ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
+for _dep in ("numpy",):
+    try:
+        __import__(_dep)
+    except ImportError:
+        print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
+        raise SystemExit(3)
 import numpy as np
 
 

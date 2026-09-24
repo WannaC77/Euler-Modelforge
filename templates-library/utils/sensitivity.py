@@ -9,6 +9,13 @@
     scan_report(结果, "beta")
 其中 func 是"给定某参数值 + 其他参数 → 返回单一目标值(如峰值/成本/得分)"的函数。
 """
+# ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
+for _dep in ("numpy", "SALib", "matplotlib"):
+    try:
+        __import__(_dep)
+    except ImportError:
+        print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
+        raise SystemExit(3)
 import numpy as np
 
 

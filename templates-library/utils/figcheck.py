@@ -11,6 +11,13 @@
 exit code: 0=全过 / 1=有 FAIL / 2=文件或参数错误。
 说明：本工具做**文件层**检查；内容/越界/字号请配合 plot_style.audit_fig 与主模型 vision 复核。
 """
+# ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
+for _dep in ("PIL", "numpy"):
+    try:
+        __import__(_dep)
+    except ImportError:
+        print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
+        raise SystemExit(3)
 import sys
 import os
 

@@ -1,6 +1,11 @@
 # Euler-Modelforge · 数学建模竞赛工作流（中文版）
 
+![python](https://img.shields.io/badge/python-3.11%2B-blue)
+![license](https://img.shields.io/badge/license-MIT-green)
+![docs](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey)
+
 > **英文版 / English version**：`README.en.md`（本文件为中文版正本，两份同构）
+> **CI 徽章**：待仓库 URL 确定后补（与 `LICENSE` / `CITATION.cff` 同批替换占位）。
 
 ---
 
@@ -34,7 +39,7 @@
 | E-M4 求解工坊 | 模型 → 求解 + 复现：模板库直用、artifacts 落盘、复现卡齐 |
 | E-M5 检验台 | 解 → 敏感性分析 + 互验：扫描报告、分级互验、量纲量级核对 |
 | E-M6 图件车间 | 数据 → 出版级图：PNG / PDF / SVG 三格式 + 图注，黑白与色盲友好检查 |
-| E-M7 论文装配线 | 求解 → 论文：LaTeX 双模板装配（国赛模板需自备）、四轮自审、Claim-Evidence 映射、编译自检 |
+| E-M7 论文装配线 | 求解 → 论文：LaTeX 装配（**美赛模板随包；国赛模板需自备**）、四轮自审、Claim-Evidence 映射、编译自检 |
 | E-M8 提交合规闸 | 论文 → 提交包：提交前机检、打包清单、AI 使用记录提醒 |
 | E-M9 校准与锚（L2 挂接） | 只声明边界：私有校准数据与锚注册备赛期只读挂接，赛中禁跑 |
 | E-M10 编排器 | runbook 选线（RB-E1–E5）+ 交接卡（输入 / 产物 / 门禁 / 降级 / 下一步） |
