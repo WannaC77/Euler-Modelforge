@@ -5,7 +5,7 @@
 ## 0. 拿包
 
 ```bash
-git clone <本仓库 URL> Euler-Modelforge
+git clone https://github.com/WannaC77/Euler-Modelforge Euler-Modelforge
 cd Euler-Modelforge
 ```
 
