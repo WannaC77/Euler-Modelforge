@@ -3,9 +3,11 @@
 ![python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![license](https://img.shields.io/badge/license-MIT-green)
 ![docs](https://img.shields.io/badge/docs-CC%20BY%204.0-lightgrey)
+![smoke](https://img.shields.io/badge/smoke-35%2F35%20PASS-brightgreen)
 
-> **英文版 / English version**：`README.en.md`（本文件为中文版正本，两份同构）
-> **CI 徽章**：待仓库 URL 确定后补（与 `LICENSE` / `CITATION.cff` 同批替换占位）。
+> **从赛题到可提交论文的硬时间盒流程**：每一步有门禁，每一个结论留证据，缺件照实标 `[降级]`。
+> **英文版 / English version**：`README.en.md`（本文件为中文正本；同步承诺见 `CONTRIBUTING.md`「双语同步 SLA」）
+> **CI**：`.github/workflows/ci.yml` 在每次 push / PR 上跑自检与冒烟（Python 3.11 + 3.13 双版本）；CI 徽章与仓库链接在仓库 URL 确定后同批补上。
 
 ---
 
@@ -13,11 +15,19 @@
 
 **Euler-Modelforge 是一套「手册 + 工具链」形态的数学建模竞赛工作流**：把「读题 → 假设 → 建模 → 求解 → 检验 → 图件 → 论文 → 提交」拆成 10 个带**门禁**与**降级**路径的模块，方法写在 `workflows/` 与 `references/`，自检交给 `tools/` 与 `templates-library/`——任何能读文件、能跑 Python 的人或 code agent 都能按三步装载直接开工。
 
+## 为什么需要它（Why）
+
+- 竞赛论文的分数，不是由「用了多少模型」决定的，而是由**过程能不能复核、结论能不能追溯**决定的——但倒计时里没人有空临时搭一套流程；
+- 流程散在聊天记录、往届论文和脑子里 → 换个题型、换批队友就重来一遍：本包把它固化成一棵**按需装载的文件树**，而不是又一个模板合集；
+- 备赛期最常见的挫败不是「不会建模」，而是「跑不通、装不上、不知道缺什么」——本包把缺件写成制度：`[降级]` / `SKIP` 一律如实标注并给出替代路径，**绝不假称通过**。
+
 ## 目标用户
 
 - 参加数学建模竞赛（美赛 MCM/ICM、国赛 CUMCM 及同类赛事）的队伍与指导教师；
 - 想用一套可复现、带门禁的流程写建模论文的个人研究者；
 - 把方法论交给 code agent 执行、需要明确装载协议与退出码约定的用户。
+
+**门槛**：不需要会 LaTeX、不需要预先学一套新工具——会读文件、能跑 `python` 就能走完全链（求解模板与自检都是现成脚本）；建模判断与论文文本仍由你本人负责。
 
 ## 三步装载
 
@@ -60,13 +70,15 @@ Euler-Modelforge/
 ├── templates/                 交付卡模板（拆题卡 / 模型卡 / 复现卡 / CE 映射表 …）
 ├── references/                参考卡与协议 + 获奖级方法论/
 ├── tools/                     env_check.py · smoke_chain.py
-├── scripts/                   precheck_paper.py
+├── scripts/                   precheck_paper.py · verify_manifest.py（文档-磁盘一致性自证）
 ├── templates-library/         求解模板库 + utils/ + MODEL_GUIDE.md + smoke_all.py
 ├── paper-templates/           LaTeX 论文模板（美赛随包；国赛为外置位，需自备）+ 编译自检
 ├── kb/                        自建知识库（空目录 + 自建说明）
+├── docs/images/               真实运行生成的样张（本文件「5 分钟你会拿到什么」引用）
 ├── LICENSE / LICENSE-DOCS / THIRD-PARTY.md
-├── CONTRIBUTING.md / CODE_OF_CONDUCT.md / SECURITY.md   贡献 / 行为准则 / 安全策略
-├── .github/ISSUE_TEMPLATE/    缺陷与功能请求模板
+├── CONTRIBUTING.md / CODE_OF_CONDUCT.md / SECURITY.md / SUPPORT.md   贡献 / 行为准则 / 安全 / 支持
+├── MAINTAINERS.md / .editorconfig / .gitattributes / .pre-commit-config.yaml   维护者 / 开发约定
+├── .github/                   CI（workflows/ci.yml）· issue 与 PR 模板 · CODEOWNERS · dependabot
 └── QUICKSTART.md / CHANGELOG.md / CITATION.cff
 ```
 
@@ -109,6 +121,23 @@ python templates-library/smoke_all.py --quick   # 模板库冒烟（每类首件
 
 > L2 是**可选增强**：只用 L0 也能跑完整条链；没有 L2 时相关模块走「降级」列。
 
+## 它从哪里长出来（实战演变）
+
+**Origin timeline**：本包骨架脱胎于本人 2026 年 8 月起搭的数模备赛工作流（数模侧工作流体系于 2026-09-08 与生科 S8 评审机制同构成型），经备赛期两轮评委尺子校准（rubric v1.5 → v2.1）与模板库冒烟补齐；开源剥离工作自 2026-09-22 启动（本包 v1.0.0）。
+
+本包的方法与门禁同样有实战由来，每条都能在评审台账与冒烟报告里复现：
+
+**成功案例**
+- **35 个求解模板全量冒烟 35/35 PASS**，LP 黄金数值断言对出解析最优值 21.0（解析真值 vs 数值解差 <1e-6）；报告落 `templates-library/_smoke_out/`，可复跑。
+- **评委尺子校准**：独立 holdout 12 篇获奖论文判档命中 11/12（91.7%），控制对照"河北 2023B 官方 64 → 本会话复评 64"逐维一致——尺子本身先可复现，再谈修分。
+
+**失败典型**
+- **评委初评 10 篇只对 7 篇**：三个跨级判错案例（三道往届题各一）没有掩盖，而是写进台账，成为 rubric v2.0 → v2.1 的整改依据。
+- **生成臂自证循环**：一段建模文风目标在同题对照下暴露"构念错配"（片段强但全文档位被错判）——如实登记为「限缩放行」而非硬咽，生成侧锁到独立验证前置状态。
+- **holdout 惟一失手**：2022C 省二被高估一档，未刷绿、留档待样本扩容后重校。
+
+> 更多原记录见 `learnings.md`（错题本，机制与格式随包，条目不随包）。
+
 ## 学术诚信与 AI 使用声明
 
 - **绝不编造**数据、求解结果与文献引用；不确定性如实汇报（模型局限、数据缺口、参数敏感性）。
@@ -116,6 +145,26 @@ python templates-library/smoke_all.py --quick   # 模板库冒烟（每类首件
 - **AI 使用透明**：按赛事规定声明所用 AI 工具名称与版本、使用范围，并准备支撑材料；未按要求声明可能被取消评奖资格（口径与模板见 `workflows/10-AI使用声明.md`）。
 - **竞赛期间独立完成**：不与他人讨论赛题；引用可追溯；原始数据不改、代码可复现、结果可核验。
 - 三态标注（事实 / 推断 / 假设）与四大冷水（模型堆砌 / 重结果轻过程 / 摘要写砸 / 假设随意）是论文侧的常驻自查项，见 `Euler-CORE.md` 与 `references/cold-water.md`。
+
+## 5 分钟你会拿到什么
+
+不读参数、不听承诺——直接看真跑出来的样子。以下产物都是**本仓库真实运行生成**（合成数据、固定 seed）：
+
+| 产物 | 它是什么 | 你怎么拿到它 |
+|---|---|---|
+| ![分组柱状图（Baseline vs Proposed，含显著性标注与灰度斜纹）](docs/images/figkit_demo1_grouped_bar.png) | 出自 `templates-library/utils/figkit/` 的分组柱状图样例 | `QUICKSTART.md` 第 3 步 `python tools/smoke_chain.py --selftest` 里跑出来的东西（smoke 的 M6 阶段跑的就是这个脚本） |
+| ![敏感性热图（6 参数 × 12 时刻，对称色阶）](docs/images/figkit_demo2_heatmap.png) | 出自 figkit 的热图样例 | 同一条链里 M6 敏感性的图型参照（figkit demo2） |
+| ![smoke_chain 自检输出（PASS/SKIP 明细与判定行）](docs/images/smoke_chain_selftest_output.txt) | 冒烟链的**文本输出**（判定：FAIL=0 → PASS） | `QUICKSTART.md` 第 3 步命令在你终端里的样子——跑完判断装没装好，就是看这段 |
+
+看完如果觉得「这就是我要的」：回 `QUICKSTART.md` 从第 0 步开始跑。
+
+## 维护与发布
+
+- **维护者 / 支持**：`MAINTAINERS.md`（守门范围）· `SUPPORT.md`（提问前先跑自检；首应 ≤ 7 天）
+- **版本与回滚**：`CHANGELOG.md`（SemVer tag 约定 + 逐版条目）——按 tag 回退到已知可用版本
+- **中英同步**：中文正本 → 英文版 ≤ 7 天（承诺见 `CONTRIBUTING.md`「双语同步 SLA」）
+- **提交 PR 前**：`pip install pre-commit && pre-commit run --all-files`（钩子清单见 `.pre-commit-config.yaml`）
+- **文档-磁盘一致性**：`python scripts/verify_manifest.py --root .`（缺件 → rc=1；用法错误 → rc=2；判据自带 `--selftest`）
 
 ## 许可
 

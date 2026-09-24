@@ -1,0 +1,25 @@
+# 由 `python tools/smoke_chain.py --selftest` 真实运行生成（2026-09-24）；本机路径已脱敏为 <包根> / <python解释器>；判定行见文末。
+```
+$ python tools/smoke_chain.py --selftest   # rc=0
+smoke_chain v1.2 (2026-09-22)｜系统根=<包根>｜主根=<包根>｜来源=probe:templates-library+workflows
+合成工作目录：tools/_smoke_out/work
+[PASS] M1 合成拆题卡（2 子问题） — decompose_card.md 1604 B｜门禁字段齐｜子问题 2（题型/模型族/数据可得性三列全）
+[PASS] M4 求解模板 lp.py（cwd=模板目录） — rc=0 · 0.3s｜解释器=<python解释器>｜[最优值] 21.0000
+[PASS] M4b 黄金数值断言（解析真值 vs 求解器 ±1e-6） — 真值（精确有理数顶点法）最优利润=21｜产量=(2、3)｜对质通过 3 条｜驱动件=<python解释器>｜[降级] 驱动件 rc=3 且无哨兵回传：[未执行] 缺少依赖 SALib：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）
+[PASS] M6 图件样例 figkit_demo1_grouped_bar.py — rc=0 · 1.7s｜新出图 3 件（figkit_demo1_grouped_bar.pdf、figkit_demo1_grouped_bar.png、figkit_demo1_grouped_bar.svg）｜解释器=<python解释器>
+[SKIP] M6s 敏感性区间断言（±20% 目标系数箱） — ±20% 目标系数箱解析区间=[16.8, 25.2]｜扫描网格 9 点真值区间=[20, 22.2]｜对质通过 0 条｜[降级] 驱动件 rc=3 且无哨兵回传：[未执行] 缺少依赖 SALib：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）｜[降级] 无任何求解器可用：仅完成解析区间计算，未做数值对质
+[PASS] M7 论文骨架生成（abstract/section/图占位） — smoke_paper.tex 1875 B｜要素 齐（abstract + 4 section + 图占位）
+[PASS] M7c xelatex 编译 — rc=0 · 1.1s｜smoke_paper.pdf 51810 B｜log 含 Output written on
+
+状态  阶段                                          详情
+--------------------------------------------------------------------------------------------
+PASS  M1 合成拆题卡（2 子问题）                     decompose_card.md 1604 B｜门禁字段齐｜子问题 2（题型/模型族/数据可得性三列全）
+PASS  M4 求解模板 lp.py（cwd=模板目录）             rc=0 · 0.3s｜解释器=<python解释器>｜[最优值] 21.0000
+PASS  M4b 黄金数值断言（解析真值 vs 求解器 ±1e-6）  真值（精确有理数顶点法）最优利润=21｜产量=(2、3)｜对质通过 3 条｜驱动件=<python解释器>｜[降级] 驱动件 rc=3 且无哨兵回传：[未执行] 缺少依赖 SALib：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）
+PASS  M6 图件样例 figkit_demo1_grouped_bar.py       rc=0 · 1.7s｜新出图 3 件（figkit_demo1_grouped_bar.pdf、figkit_demo1_grouped_bar.png、figkit_demo1_grouped_bar.svg）｜解释器=<python解释器>
+SKIP  M6s 敏感性区间断言（±20% 目标系数箱）         ±20% 目标系数箱解析区间=[16.8, 25.2]｜扫描网格 9 点真值区间=[20, 22.2]｜对质通过 0 条｜[降级] 驱动件 rc=3 且无哨兵回传：[未执行] 缺少依赖 SALib：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）｜[降级] 无任何求解器可用：仅完成解析区间计算，未做数值对质
+PASS  M7 论文骨架生成（abstract/section/图占位）    smoke_paper.tex 1875 B｜要素 齐（abstract + 4 section + 图占位）
+PASS  M7c xelatex 编译                              rc=0 · 1.1s｜smoke_paper.pdf 51810 B｜log 含 Output written on
+
+判定：PASS（FAIL=0｜WARN=0｜SKIP=1）→ tools/_smoke_out/smoke_chain_report.md
+```

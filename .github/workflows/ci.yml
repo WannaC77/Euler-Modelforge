@@ -47,3 +47,6 @@ jobs:
           rc=$?
           echo "precheck_paper.py 无参退出码 = $rc"
           test "$rc" -eq 2 -o "$rc" -eq 0 || { echo "❌ 退出码契约不符"; exit 1; }
+
+      - name: 文档-磁盘一致性自证（verify_manifest）
+        run: python scripts/verify_manifest.py --root .

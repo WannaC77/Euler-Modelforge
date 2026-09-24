@@ -1,0 +1,18 @@
+# Dependabot：pip 依赖 + GitHub Actions 双更新源，每周计划性检查
+# 说明：本仓库 CI 用 GitHub Actions（.github/workflows/ci.yml）；Python 依赖在
+# templates-library/requirements.txt（Euler 侧）。directory 必须是 yml 引号串，否则 YAML 解析失败。
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/templates-library"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels: ["dependencies"]
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    labels: ["dependencies"]

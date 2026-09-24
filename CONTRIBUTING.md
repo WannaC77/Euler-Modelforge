@@ -33,9 +33,14 @@ python tools/env_check.py --selftest        # 环境档位 T0/T1/T2
 python tools/smoke_chain.py --selftest      # 全链冒烟 M1→M4→M6→M7（含黄金数值断言）
 python templates-library/smoke_all.py --quick   # 35 模板冒烟
 python scripts/precheck_paper.py            # 论文提交预检（退出码契约 0/1/2）
+python scripts/verify_manifest.py --root .  # 文档-磁盘一致性自证（缺件 → rc=1）
 ```
 
 CI（`.github/workflows/ci.yml`）执行同一组命令，本地等价脚本见 `QUICKSTART.md`。
+
+可选但推荐：装 pre-commit 钩子（提交前查行尾 / 尾随空格 / YAML 语法 / 大文件）——
+`pip install pre-commit && pre-commit install`；提交 PR 前跑一次 `pre-commit run --all-files`。
+钩子是**提醒级**（缺 node 时可注释掉 md-lint），不阻塞内容正确性；清单见 `.pre-commit-config.yaml`。
 
 ## 提交规范
 
@@ -49,6 +54,19 @@ CI（`.github/workflows/ci.yml`）执行同一组命令，本地等价脚本见 
 - 判据要能失败：只证明「能通过」的测试不算测试。
 - 允许 `SKIP`（缺件降级），但必须写明缺件原因，且 `SKIP` 不得被读成通过。
 - 国赛（CUMCM）模板**不随包分发**（第三方许可待核，见 `THIRD-PARTY.md`）；相关贡献请勿提交该模板本体。
+
+## 双语同步 SLA
+
+本仓库文档以**中文为正本**（`README.md` / `CONTRIBUTING.md` / `SUPPORT.md` 等中文版先写、先改），英文版（`README.en.md` 等）是**同步镜像**。承诺如下：
+
+| 事项 | 承诺 |
+|---|---|
+| 中文正本变更 → 英文同步 | ≤ 7 天内提交对应英文改动 |
+| 翻译方式 | 人工翻译或机器辅助后**人工定稿**；不做「机器翻译全文直接复版」 |
+| 语言差异登记 | 英文版与中文正本因术语/口径无法逐字对齐处，在 `CHANGELOG.md` 登记（标注文件与差异点） |
+| 临时失同步 | 英文超期未同步时以中文正本为准；英文版顶部标注「滞后于中文版，差异见 CHANGELOG」 |
+
+两版内容冲突时，**中文版为裁决口径**。本节本身按同一 SLA 同步进英文版。
 
 ## 许可
 
