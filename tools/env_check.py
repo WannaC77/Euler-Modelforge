@@ -20,7 +20,7 @@
     exit 0 = 达到 T0 及以上；1 = 未达 T0
 
 路径 / Paths（探测链 · 顺序固定 · 全部相对脚本自身位置）
-    1. 环境变量覆盖（最高优先）：`MODELFORGE_ROOT`（未设则兼容 `OPENLAB_ROOT`）—— 指向包根
+    1. 环境变量覆盖（最高优先）：`MODELFORGE_ROOT` → 指向包根（12 批 W-08：撤另一套系统前缀兼容位）
     2. 自脚本位置向上逐级：某父目录**同时**含 `templates-library/` 与 `workflows/` → 该目录＝包根（major；
        包内布局 system_root 与 major 合一）
     3. 旧布局兼容：某父目录含 `Euler` 子目录（其下 `workflows/` 在位）→ system_root＝该父目录，
@@ -79,13 +79,13 @@ print("__EULER_PROBE__" + json.dumps(out, ensure_ascii=False))
 # ---------------------------------------------------------------- 定位（探测链 · 无绝对路径）
 
 SCRIPT_DIR = Path(__file__).resolve().parent            # `tools/`
-ENV_ROOT_KEYS = ('MODELFORGE_ROOT', 'OPENLAB_ROOT')     # 探测链第 1 档：包根覆盖（环境变量）
+ENV_ROOT_KEYS = ('MODELFORGE_ROOT',)                    # 探测链第 1 档：包根覆盖（环境变量）
 PKG_MARKS = ('templates-library', 'workflows')          # 包内布局标记：同一父目录下并存 → 该目录＝包根
 EULER_DIR, WF_DIR = 'Euler', 'workflows'                # 旧布局标记：<系统根>/Euler/workflows 在位
 
 
 def env_root() -> 'Path | None':
-    """探测链第 1 档：环境变量覆盖（`MODELFORGE_ROOT`，未设则 `OPENLAB_ROOT`）。未设/不存在 → None。"""
+    """探测链第 1 档：环境变量覆盖（`MODELFORGE_ROOT`）。未设/不存在 → None。"""
     for key in ENV_ROOT_KEYS:
         val = os.environ.get(key)
         if not val:
@@ -110,7 +110,7 @@ def probe_chain(start: Path, use_env: bool = True) -> 'tuple[Path, Path, str]':
     if use_env:
         envr = env_root()
         if envr is not None:                                        # ① 环境变量覆盖（最高优先）
-            return envr, envr, 'env:MODELFORGE_ROOT/OPENLAB_ROOT'
+            return envr, envr, 'env:MODELFORGE_ROOT'
     for p in upward(start):                                         # ② 包内布局（major 与 system_root 合一）
         if all((p / m).is_dir() for m in PKG_MARKS):
             return p, p, 'probe:templates-library+workflows'

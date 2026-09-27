@@ -111,6 +111,10 @@ Euler-Modelforge/
 | **L1** | contest profiles / track parameters | generic examples only |
 | **L2** | your private calibration ledger, anchor cards, shared collaboration layer | ❌ not shipped — build your own (`kb/`, `<校准台账>`, `<锚注册卡>/`) |
 
+## Related project (sibling)
+
+**[Vesi-Labflow](https://github.com/WannaC77/Vesi-Labflow)** is the sibling project: the same "single-core multi-track + loading discipline + falsifiable gates" architecture realized for the **life-science / formulation-PK** domain. Same architecture, different domain — each stands alone.
+
 ## Integrity & licensing
 
 - AI is an **assistant**: core modeling and conclusions must be yours — see `workflows/10-AI使用声明.md`.

@@ -69,7 +69,7 @@ M9 校准：备赛期挂接、赛中禁跑（L2）
 
 | 件名 | 相对路径 | 版本 | 模块 | 层 | 状态 |
 |---|---|---|---|---|---|
-| 引擎（本文件） | `Euler-ENGINE.md` | v1.0 | E-M10 | L0 | ✅ |
+| 引擎（本文件） | `Euler-ENGINE.md` | v1.2 | E-M10 | L0 | ✅ |
 | SSOT 卡 | `references/路径与资产清单.md` | v1.0 | E-R | L0 | ✅ |
 | 工作流正本 00–10 | `workflows/00–10` | — | 全域 | L0 既有·**正文冻结** | ✅ |
 | 工作流共享层 + 吸收层 | `workflows/_SHARED.md` · `W-ABSORB.md` | — | 全域 | L0 既有 | ✅ |
@@ -81,8 +81,8 @@ M9 校准：备赛期挂接、赛中禁跑（L2）
 | 模板库 35 | `templates-library/`（8 类 35 模板 + `MODEL_GUIDE.md` + `requirements.txt`） | — | E-M4 | L0 既有 | ✅ |
 | utils 4 | `templates-library/utils/`（plot_style v2 / sensitivity / latex_table / figcheck） | — | E-M4/M5/M6 | L0 既有 | ✅ |
 | 论文模板（美赛随包） | `paper-templates/`（美赛-MCM-ICM 随包；国赛-CUMCM 第三方许可待核**不随包**，目录内留 README 指引 / `编译自检.bat` / 两份说明） | — | E-M7 | L0 既有 | ✅ |
-| 生成侧训练台账 | `<校准台账>`（changelog v1.4） | v1.4 | E-M9 | L2 | ✅ |
-| 锚注册卡 | `<锚注册卡>/`（11 件） | — | E-M9 | L2 | ✅ |
+| 生成侧训练台账 | `<校准台账>`（changelog v1.4，**外部挂接**） | v1.4 | E-M9 | L2 | ⭕ 不随包 |
+| 锚注册卡 | `<锚注册卡>/`（11 件，**外部挂接**） | — | E-M9 | L2 | ⭕ 不随包 |
 | 模块规格件 ×11 | `modules/E-M*/MODULE.md`（四件：目的/接口/门禁/降级） | v1.0 | 各模块 | L0 | ✅ |
 | 模板集 ×10 | `templates/`（拆题卡 / 选题评估矩阵 / 假设表 / 符号表.tex / 模型卡 / 复现卡 / 敏感性报告卡 / Claim-Evidence 映射表 / 提交包清单卡 / AI 记录模板） | v1.0 | E-M1–M8 | L0 | ✅ |
 | 工具集 | `tools/{env_check,smoke_chain}.py`（v1.2）；`templates-library/smoke_all.py`；`templates-library/utils/figkit/`（5 demo + gray_cb_check） | v1.0/1.1 | E-M4/M6/R | L0 | ✅ |

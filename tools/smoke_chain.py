@@ -35,7 +35,7 @@
     python smoke_chain.py --selftest      # 别名：跑完整链即自测（全 PASS/SKIP 则 rc=0）
 
 路径 / Paths（探测链 · 顺序固定 · 全部相对脚本自身位置）
-    1. 环境变量覆盖（最高优先）：`MODELFORGE_ROOT`（未设则兼容 `OPENLAB_ROOT`）—— 指向包根
+    1. 环境变量覆盖（最高优先）：`MODELFORGE_ROOT` → 指向包根（12 批 W-08：撤另一套系统前缀兼容位）
     2. 自脚本位置向上逐级：某父目录**同时**含 `templates-library/` 与 `workflows/` → 该目录＝包根（major）
     3. 旧布局兼容：某父目录含 `Euler` 子目录（其下 `workflows/` 在位）→ system_root＝该父目录，
        major＝该父目录下的 `Euler`
@@ -66,8 +66,8 @@ RESULTS: list = []                             # [(阶段, 状态, 详情)]
 PY = 'python'
 
 # -------- 定位（探测链）常量 --------
-ENV_ROOT_KEYS = ('MODELFORGE_ROOT', 'OPENLAB_ROOT')     # 探测链第 1 档：包根覆盖（环境变量）
-ENV_VENV_KEYS = ('MODELFORGE_VENV', 'LABFLOW_VENV')     # 解释器覆盖（附录 D：venv 探测链）
+ENV_ROOT_KEYS = ('MODELFORGE_ROOT',)                    # 探测链第 1 档：包根覆盖（环境变量）
+ENV_VENV_KEYS = ('MODELFORGE_VENV',)     # 解释器覆盖（附录 D：venv 探测链）
 PKG_MARKS = ('templates-library', 'workflows')          # 包内布局标记：同一父目录下并存 → 该目录＝包根
 EULER_DIR, WF_DIR = 'Euler', 'workflows'                # 旧布局标记：<系统根>/Euler/workflows 在位
 PICK_MAX = 6                                            # 解释器候选最多探测几个（每个一次 import 探测）
@@ -234,7 +234,7 @@ print("%(sentinel)s" + json.dumps(out, ensure_ascii=False))
 # ---------------------------------------------------------------- 定位（探测链 · 无绝对路径）
 
 def env_root() -> 'Path | None':
-    """探测链第 1 档：环境变量覆盖（`MODELFORGE_ROOT`，未设则 `OPENLAB_ROOT`）。未设/不存在 → None。"""
+    """探测链第 1 档：环境变量覆盖（`MODELFORGE_ROOT`）。未设/不存在 → None。"""
     for key in ENV_ROOT_KEYS:
         val = os.environ.get(key)
         if not val:
@@ -259,7 +259,7 @@ def probe_chain(start: Path, use_env: bool = True) -> 'tuple[Path, Path, str]':
     if use_env:
         envr = env_root()
         if envr is not None:                                        # ① 环境变量覆盖（最高优先）
-            return envr, envr, 'env:MODELFORGE_ROOT/OPENLAB_ROOT'
+            return envr, envr, 'env:MODELFORGE_ROOT'
     for p in upward(start):                                         # ② 包内布局（major 与 system_root 合一）
         if all((p / m).is_dir() for m in PKG_MARKS):
             return p, p, 'probe:templates-library+workflows'
@@ -321,7 +321,7 @@ def run(cmd: list, cwd=None, timeout: int = 600) -> 'tuple[int, str]':
 
 
 def venv_python(prog: Path) -> 'Path | None':
-    """venv 解释器：环境变量覆盖（MODELFORGE_VENV / LABFLOW_VENV，附录 D）→ 包内 <venv>。"""
+    """venv 解释器：环境变量覆盖（MODELFORGE_VENV）→ 包内 <venv>。"""
     for key in ENV_VENV_KEYS:
         val = os.environ.get(key)
         if not val:
@@ -381,10 +381,10 @@ def system_pythons() -> list:
 
 def find_xelatex() -> 'str | None':
     """xelatex 解析——优先序与 `paper-templates/编译自检.bat` 一致：
-    环境变量 `MODELFORGE_TEX` / `LABFLOW_TEX` → 本机 TeX 常见布局 → PATH → MiKTeX（%LOCALAPPDATA% 用户级安装）。
+    环境变量 `MODELFORGE_TEX` → 本机 TeX 常见布局 → PATH → MiKTeX（%LOCALAPPDATA% 用户级安装）。
     （PATH 里 MiKTeX 常排首位，但其仓库未注册/临时目录异常时易失败——正序取已知布局更稳。）"""
     cands = []
-    for key in ('MODELFORGE_TEX', 'LABFLOW_TEX'):
+    for key in ('MODELFORGE_TEX',):
         val = os.environ.get(key)
         if val:
             cands.append(Path(val).expanduser())
