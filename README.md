@@ -89,6 +89,7 @@ Euler-Modelforge/
 - **Python 3.11+**（模板库与工具的运行基线）。
 - **依赖**：`templates-library/requirements.txt`（numpy / scipy / pandas / matplotlib / Pillow / statsmodels / scikit-learn / networkx / SALib / pulp）。
 - 建议自建虚拟环境（如 `<venv>/`）并在其中安装依赖，避免污染系统解释器。
+- **pip 直装（v1.1.0+，可选）**：`pip install euler-modelforge[all]`；命令入口 `euler-env-check` / `euler-smoke-chain` / `euler-precheck-paper` / `euler-verify-manifest`。安装态数据在包内 `_tree/`（`MODELFORGE_ROOT` 可指向自建树）。文档站：https://wannac77.github.io/Euler-Modelforge/
 - **可选**：LaTeX（xelatex）用于论文编译、系统中文字体用于图件与编译。缺件不阻塞——模块表有「降级」列，缺件按降级路径执行并标 `[降级]`。
 
 ## 冒烟自检（跑通即装好）

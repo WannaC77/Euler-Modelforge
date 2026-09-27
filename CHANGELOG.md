@@ -2,6 +2,22 @@
 
 本项目遵循 [Semantic Versioning](https://semver.org/lang/zh-CN/)。
 
+## v1.1.0 — 特性批（2026-09-27）
+
+**定位**：可安装 / 可上手 / 可浏览三件套——`pip install` 直装（含命令入口）、`examples/` 可运行示例、文档站（GitHub Pages）。内容与 v1.0.x 全兼容。
+
+**新增**
+- **pip 可安装**：`pyproject.toml` + 命令入口（`euler-env-check` / `euler-smoke-chain` / `euler-precheck-paper` / `euler-verify-manifest` / `euler-smoke-templates`）；安装态数据落包内 `_tree/`，`MODELFORGE_ROOT` 可覆盖根路径
+- **examples/**：3 个全合成数据示例（真跑判据；随 CI 冒烟）
+- **文档站**：mkdocs-material 六页（首页 / 5 分钟上手 / 示例 / 工作流索引 / 工具索引 / 治理与许可）；`.github/workflows/docs.yml` 自动部署
+- **CI**：新增「示例冒烟」步骤
+
+**维护**
+- 模板库格式微调（依赖护栏注释与 import 次序；语义中性，与上游工作树对齐）
+- 模块表两处表述更新（工具件覆盖 / 断言计数）
+
+**兼容性**：无破坏性变更；退出码契约不变（`0` 通过 · `1` 失败 · `2` 用法 · `3` 依赖缺失未执行）。
+
 ## v1.0.1 — 验收整改（2026-09-27）
 
 **定位**：第三方验收（《11-全量扫描》）+ 复核后的整改公开发行——内容与 v1.0.0 全兼容，无新增功能。

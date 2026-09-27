@@ -9,9 +9,6 @@
 输出格式：数值解 t 与状态矩阵 Y；控制台打印关键指标。
 依赖：scipy、numpy、matplotlib。
 """
-import os
-import sys
-
 # ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
 for _dep in ("numpy", "scipy", "matplotlib"):
     try:
@@ -19,6 +16,9 @@ for _dep in ("numpy", "scipy", "matplotlib"):
     except ImportError:
         print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
         raise SystemExit(3)
+import os
+import sys
+
 import numpy as np
 from scipy.integrate import solve_ivp
 from scipy.signal import find_peaks

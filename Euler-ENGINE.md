@@ -3,7 +3,7 @@
 > **用途 / Purpose**：数学建模竞赛（美赛 MCM/ICM + 国赛 CUMCM）生成引擎；哲学＝**冲刺可执行；倒计时砍范围不砍深度**。
 > **装载 / Mount**：任何可读文件 + 跑 Python 的人或 agent 按 §0 三步装载；不依赖任何 agent 私有机制。
 > **正本 / SSOT**：细节正本在 `workflows/` 与各模块规格件；**本文件只索引，不复制正文**。
-> **版本 / Version**：v1.2（2026-09-22）· 模块 10 + 底座 · 执行方：任何可读文件 + 跑 Python 者（无私有依赖）
+> **版本 / Version**：v1.3（2026-09-27）· 模块 10 + 底座 · 执行方：任何可读文件 + 跑 Python 者（无私有依赖）
 > **分层 / Layers**：L0 领域能力（本文件 · `modules/` · `templates/` · `tools/` · `templates-library/**` 模板库 · `paper-templates/**`）｜L1 配置剖面（`Euler-CORE.md` 双赛事节 = 美赛/国赛 profile）｜L2（`<校准台账>` · `<锚注册卡>/` · <校准标准> 个人校准——只读引用）
 > **开源兼容**：新建 L0 全部系统相对路径；L0 不依赖个人判档线/锚分；赛事参数在 L1 profile 小节。
 
@@ -69,7 +69,7 @@ M9 校准：备赛期挂接、赛中禁跑（L2）
 
 | 件名 | 相对路径 | 版本 | 模块 | 层 | 状态 |
 |---|---|---|---|---|---|
-| 引擎（本文件） | `Euler-ENGINE.md` | v1.2 | E-M10 | L0 | ✅ |
+| 引擎（本文件） | `Euler-ENGINE.md` | v1.3 | E-M10 | L0 | ✅ |
 | SSOT 卡 | `references/路径与资产清单.md` | v1.0 | E-R | L0 | ✅ |
 | 工作流正本 00–10 | `workflows/00–10` | — | 全域 | L0 既有·**正文冻结** | ✅ |
 | 工作流共享层 + 吸收层 | `workflows/_SHARED.md` · `W-ABSORB.md` | — | 全域 | L0 既有 | ✅ |
@@ -87,6 +87,9 @@ M9 校准：备赛期挂接、赛中禁跑（L2）
 | 模板集 ×10 | `templates/`（拆题卡 / 选题评估矩阵 / 假设表 / 符号表.tex / 模型卡 / 复现卡 / 敏感性报告卡 / Claim-Evidence 映射表 / 提交包清单卡 / AI 记录模板） | v1.0 | E-M1–M8 | L0 | ✅ |
 | 工具集 | `tools/{env_check,smoke_chain}.py`（v1.2）；`templates-library/smoke_all.py`；`templates-library/utils/figkit/`（5 demo + gray_cb_check） | v1.0/1.1 | E-M4/M6/R | L0 | ✅ |
 | 参考卡 ×4 | `references/`（求解报告规范 / 论文装配SOP / 图注模板 / 故障速查卡） | v1.0 | 各模块 | L0 | ✅ |
+| 打包件 | `pyproject.toml` · `euler_modelforge/`（命令入口） | v1.1.0 | E-R | L0 新增 | ✅ |
+| 示例组 | `examples/`（3 件 + README，合成数据） | v1.1.0 | E-R | L0 新增 | ✅ |
+| 文档站 | `mkdocs.yml` · `docs/*.md`（6 页） · `.github/workflows/docs.yml` | v1.1.0 | E-R | L0 新增 | ✅ |
 
 ## 6 · 环境卡（以本机 `env_check` 实测为准）
 
@@ -123,3 +126,5 @@ M9 校准：备赛期挂接、赛中禁跑（L2）
 - v1.0（2026-09-21 · 生成侧强化批 2）：骨架建立（装载协议 / 双基准 SSOT / 模块注册 ×11 / 数据流 / 门禁矩阵 / runbooks RB-E1–E5 / 资产清单 / 环境卡 / 交接卡 / 维护纪律）。
 - v1.1（2026-09-22 · 生成侧强化批 4 · 总装）：模块规格件 ×11 / 模板集 ×10 / 工具集（env_check · smoke_chain v1.1 · smoke_all · figkit）/ 参考卡 ×4 全部落盘并登记；smoke_all 35/35、smoke_chain 全 PASS；门禁行挂接实路径。
 - v1.2（2026-09-22 · 开源发布批）：资产清单版本对齐（smoke_chain v1.1→v1.2，与脚本自报 VERSION 一致）；`scripts/precheck_paper.py` 退出码契约修正（输入错误 → 2 且不再抛栈；`--help` → 0）；QUICKSTART/AGENTS 补「无 venv 时的解释器选择」与「自检产物落盘位置」；环境卡改为以本机 env_check 实测为准。
+- v1.2.1（回溯登记 · 2026-09-27）：v1.0.1 验收整改批对本文的修订并入登记（资产清单状态列 / track-config 拆分 / 引擎版本行对齐）。
+- v1.3（2026-09-27 · v1.1.0 特性批）：pip 可安装（`pyproject.toml` + `euler_modelforge/` 命令入口）；`examples/` 示例组（3 件）；文档站（mkdocs-material 六页）；资产清单增登记（见 §5）。

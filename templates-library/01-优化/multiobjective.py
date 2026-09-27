@@ -15,8 +15,6 @@
     2. 运行 python multiobjective.py
     3. 论文可用图 + 表中"拐点/端点"作为推荐折中方案
 """
-import os
-
 # ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
 for _dep in ("numpy", "matplotlib", "scipy"):
     try:
@@ -24,6 +22,8 @@ for _dep in ("numpy", "matplotlib", "scipy"):
     except ImportError:
         print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
         raise SystemExit(3)
+import os
+
 import numpy as np
 import matplotlib
 matplotlib.use("Agg")                       # 无显示环境可跑；本地想弹窗可改 "TkAgg"

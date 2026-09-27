@@ -10,7 +10,7 @@
 - 输出：环境档位 / 冒烟表 / 故障卡
 
 ## 接口字段 / Interface
-`tools/env_check.py`（档位）｜`tools/smoke_chain.py`（链冒烟）｜`templates-library/smoke_all.py`（35 模板冒烟）｜`references/路径与资产清单.md`｜`references/故障速查卡.md`。
+`tools/env_check.py`（档位）｜`tools/smoke_chain.py`（链冒烟）｜`templates-library/smoke_all.py`（35 模板 + 10 工具件冒烟）｜`references/路径与资产清单.md`｜`references/故障速查卡.md`。
 
 ## 装载 / Loading（指针，细节在正本）
 同上 + `references/故障速查卡.md`

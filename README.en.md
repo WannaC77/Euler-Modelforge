@@ -42,6 +42,8 @@ python tools/smoke_chain.py --selftest        # end-to-end smoke chain (with num
 python templates-library/smoke_all.py --quick # 35 solver templates
 ```
 
+- **Install via pip (v1.1.0+)**: `pip install euler-modelforge[all]` — console commands `euler-env-check`, `euler-smoke-chain`, `euler-precheck-paper`, `euler-verify-manifest`. Package data lands in `_tree/` (override via `MODELFORGE_ROOT`). Docs: https://wannac77.github.io/Euler-Modelforge/
+
 See [`QUICKSTART.md`](QUICKSTART.md) for the 5-minute path and [`AGENTS.md`](AGENTS.md) if you are a code agent.
 
 ## What you get in 5 minutes

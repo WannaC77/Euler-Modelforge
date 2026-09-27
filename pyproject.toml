@@ -1,0 +1,73 @@
+# Euler-Modelforge — 打包元数据（v1.1.0 特性批：pip 可安装）
+# 注：包目录为纯构建产物——改动请走项目构建流程，勿直编包内副本。
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "euler-modelforge"
+version = "1.1.0"
+description = "数学建模竞赛工作流（MCM/ICM · CUMCM）：手册 + 求解模板 + 可执行门禁"
+readme = "README.md"
+requires-python = ">=3.11"
+license = {text = "MIT"}
+authors = [{ name = "WannaC77" }]
+keywords = ["math-modeling", "mcm", "cumcm", "workflow", "latex"]
+[project.urls]
+Homepage = "https://github.com/WannaC77/Euler-Modelforge"
+
+[project.optional-dependencies]
+all = [
+  "numpy>=1.24,<3", "scipy>=1.10,<2", "pandas>=2.0,<3", "matplotlib>=3.7,<4",
+  "Pillow>=10,<12", "pulp>=2.7,<4", "statsmodels>=0.14,<1", "scikit-learn>=1.3,<2",
+  "networkx>=3.1,<4", "SALib>=1.4,<2",
+]
+
+[project.scripts]
+euler-env-check = "euler_modelforge.cli:env_check"
+euler-smoke-chain = "euler_modelforge.cli:smoke_chain"
+euler-precheck-paper = "euler_modelforge.cli:precheck_paper"
+euler-verify-manifest = "euler_modelforge.cli:verify_manifest"
+euler-smoke-templates = "euler_modelforge.cli:smoke_templates"
+
+[tool.hatch.build.targets.wheel]
+packages = ["euler_modelforge"]
+
+[tool.hatch.build]
+exclude = ["**/__pycache__", "**/*.pyc", "**/_smoke_out", "**/_out"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"examples" = "euler_modelforge/_tree/examples"
+"tools" = "euler_modelforge/_tree/tools"
+"scripts" = "euler_modelforge/_tree/scripts"
+"templates-library" = "euler_modelforge/_tree/templates-library"
+"modules" = "euler_modelforge/_tree/modules"
+"workflows" = "euler_modelforge/_tree/workflows"
+"templates" = "euler_modelforge/_tree/templates"
+"paper-templates" = "euler_modelforge/_tree/paper-templates"
+"references" = "euler_modelforge/_tree/references"
+"docs" = "euler_modelforge/_tree/docs"
+"kb" = "euler_modelforge/_tree/kb"
+".github" = "euler_modelforge/_tree/.github"
+"AGENTS.md" = "euler_modelforge/_tree/AGENTS.md"
+"BOOT.md" = "euler_modelforge/_tree/BOOT.md"
+"CHANGELOG.md" = "euler_modelforge/_tree/CHANGELOG.md"
+"CITATION.cff" = "euler_modelforge/_tree/CITATION.cff"
+"CODE_OF_CONDUCT.md" = "euler_modelforge/_tree/CODE_OF_CONDUCT.md"
+"CONTRIBUTING.md" = "euler_modelforge/_tree/CONTRIBUTING.md"
+"Euler-CORE.md" = "euler_modelforge/_tree/Euler-CORE.md"
+"Euler-ENGINE.md" = "euler_modelforge/_tree/Euler-ENGINE.md"
+"LICENSE" = "euler_modelforge/_tree/LICENSE"
+"LICENSE-DOCS" = "euler_modelforge/_tree/LICENSE-DOCS"
+"MAINTAINERS.md" = "euler_modelforge/_tree/MAINTAINERS.md"
+"QUICKSTART.md" = "euler_modelforge/_tree/QUICKSTART.md"
+"README.md" = "euler_modelforge/_tree/README.md"
+"README.en.md" = "euler_modelforge/_tree/README.en.md"
+"SECURITY.md" = "euler_modelforge/_tree/SECURITY.md"
+"SUPPORT.md" = "euler_modelforge/_tree/SUPPORT.md"
+"THIRD-PARTY.md" = "euler_modelforge/_tree/THIRD-PARTY.md"
+"learnings.md" = "euler_modelforge/_tree/learnings.md"
+".editorconfig" = "euler_modelforge/_tree/.editorconfig"
+".gitattributes" = "euler_modelforge/_tree/.gitattributes"
+".gitignore" = "euler_modelforge/_tree/.gitignore"
+".pre-commit-config.yaml" = "euler_modelforge/_tree/.pre-commit-config.yaml"

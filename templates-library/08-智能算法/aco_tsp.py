@@ -15,8 +15,6 @@
     2. 运行 python aco_tsp.py
     3. 论文引用最优路径与总长度；画路线图用 matplotlib 连线 CITIES[bij]
 """
-import itertools
-
 # ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
 for _dep in ("numpy",):
     try:
@@ -24,6 +22,8 @@ for _dep in ("numpy",):
     except ImportError:
         print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
         raise SystemExit(3)
+import itertools
+
 import numpy as np
 
 # ============ 问题参数（改这里即可）============

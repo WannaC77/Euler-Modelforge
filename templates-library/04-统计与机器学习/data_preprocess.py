@@ -7,10 +7,6 @@
 输出格式：清洗 + 变换后的 DataFrame；控制台分步骤输出统计量（可写进论文预处理章节）。
 依赖：pandas、numpy。
 """
-import importlib.util
-import os
-import tempfile
-
 # ── 依赖护栏（缺依赖 → rc=3「未执行 ≠ 通过」；见 CONTRIBUTING §硬性要求 4）──
 for _dep in ("numpy", "pandas"):
     try:
@@ -18,6 +14,10 @@ for _dep in ("numpy", "pandas"):
     except ImportError:
         print("[未执行] 缺少依赖 %s：pip install -r templates-library/requirements.txt（rc=3 = 依赖缺失未执行）" % _dep)
         raise SystemExit(3)
+import importlib.util
+import os
+import tempfile
+
 import numpy as np
 import pandas as pd
 
