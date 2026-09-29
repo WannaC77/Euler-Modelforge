@@ -6,5 +6,5 @@ Pillow>=10,<12          # templates-library/utils/figcheck.py（图像文件层�
 pulp>=2.7,<4
 statsmodels>=0.14,<1
 scikit-learn>=1.3,<2
-networkx>=3.1,<4
+networkx>=3.6.1,<4
 SALib>=1.4,<2
